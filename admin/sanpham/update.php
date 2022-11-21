@@ -120,9 +120,18 @@ if (is_file($img_path)) {
                                 </div>
                             </div>
                         
-                            <div class="form-group col-sm-8">
+                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label class="form-label">Đặc điểm sản phẩm</label>
+                                <textarea spellcheck="false" name="dac_diem" class="form-control form-control-lg mb-3" rows="5"><?= $dac_diem ?></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-sm-12">
                                 <label class="form-label">Mô tả sản phẩm</label>
-                                <textarea spellcheck="false" name="mo_ta" class="form-control form-control-lg mb-3" rows="7"><?= $mo_ta ?></textarea>
+                                <textarea spellcheck="false" name="mo_ta" class="form-control form-control-lg mb-3" rows="5"><?= $mo_ta ?></textarea>
                             </div>
                         </div>
 

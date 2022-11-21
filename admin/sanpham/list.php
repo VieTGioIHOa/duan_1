@@ -11,7 +11,7 @@
     <div class="box box-primary">
         <div class="box-body">
 
-        <a href="index.php?act=addsp"><input type="submit" class="btn btn-success mb-1" value="Nhập thêm"></a>
+        <a href="index.php?act=addsp" class="btn btn-success text-white">Thêm mới<i class="fas fa-plus-circle"></i></a>
             <form action="index.php?act=listhh" method="post" class="table-responsive">
                 <table width="100%" class="table table-hover table-bordered text-center">
                     <thead class="thead-dark">

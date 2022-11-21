@@ -2,6 +2,46 @@
     display: flex;
     
 }
+.tong{
+    background-color: #EBEFF3;
+}
 .right{
     width: 100%;
 }
+.tren{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    margin-top: 15px;
+}
+h4{
+    padding: 10px;
+}
+.one{
+    width: 100%;
+    border: 0.5px solid white;
+    background-color: white;
+    margin: 10px;
+}
+ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+.fa-solid{
+    color: blue;
+    font-size: 45px;
+}
+.gia-tri{
+    font-weight: 600;
+    font-size: 23px;
+    float: right;
+    margin-right: 5px;
+}
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
