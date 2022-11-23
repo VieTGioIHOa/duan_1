@@ -79,7 +79,7 @@
                    <hr>
                    <ul class="nav nav-pills flex-column mb-auto">
                      <li class="nav-item">
-                       <a href="#" class="nav-link">
+                       <a href="home.php" class="nav-link">
                          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                          Home
                        </a>
@@ -88,6 +88,12 @@
                        <a href="index.php?act=adddm" class="nav-link link-dark">
                          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                          Danh mục
+                       </a>
+                     </li>
+                     <li>
+                       <a href="index.php?act=addms" class="nav-link link-dark">
+                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#toggles2"/></svg>
+                         Màu sắc
                        </a>
                      </li>
                      <li>
@@ -101,6 +107,12 @@
                        <a href="index.php?act=addtk" class="nav-link link-dark">
                          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                          Tài khoản
+                       </a>
+                     </li>
+                     <li>
+                       <a href="index.php?act=addtt" class="nav-link link-dark">
+                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#calendar3"/></svg>
+                         Tin tức
                        </a>
                      </li>
                      <li>

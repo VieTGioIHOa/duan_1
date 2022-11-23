@@ -23,9 +23,9 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group col-sm-4">
+                            <!-- <div class="form-group col-sm-4">
                                 <label class="form-label">Kích cỡ</label>
-                                <select name="id_kich_co" class="form-control">
+                                <select name="id_kich_co" multiple="multiple" class="form-control">
                                     <?php
                                     foreach ($listkichco as $size) {
                                         extract($size);
@@ -33,6 +33,16 @@
                                     }
                                     ?>
                                 </select>
+                            </div> -->
+                            <div class="form-group col-sm-4">
+                                <label class="form-label">Kích cỡ</label>
+                                    <?php
+                                    foreach ($listkichco as $size) {
+                                        extract($size);
+                                        echo '<input name="id_kich_co[]" type="checkbox" value="' . $id_kich_co . '">' . $ten_kich_co . '>';
+                                    }
+                                    ?>
+                              
                             </div>
                             <div class="form-group col-sm-4">
                                 <label class="form-label">Màu sắc</label>
@@ -90,6 +100,12 @@
                                 <input type="date" name="ngay_nhap" class="form-control">
                             </div> -->
                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label class="form-label">Đặc điểm sản phẩm</label>
+                                <textarea name="dac_diem" class="form-control form-control-lg mb-3" rows="3"></textarea>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-12">

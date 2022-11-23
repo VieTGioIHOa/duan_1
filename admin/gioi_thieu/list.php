@@ -18,7 +18,7 @@
                         <tr>
                             <th>Tiêu đề</th>
                             <th>Ảnh</th>
-                            <th>Nội dung</th>
+                            
                             <th></th>
                         </tr>
                     </thead>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td><?= $tieu_de ?></td>
                                 <td><?= $img ?></td>
-                                <td><?= $noi_dung ?></td>
+                                <!--  -->
                                 <td class="text-end">
                                     <a href="<?= $suagt ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i>Sửa</a>
                                 </td>

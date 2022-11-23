@@ -1,14 +1,14 @@
 <?php
 require_once 'pdo.php';
 
-function san_pham_insert($ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$id_danh_muc, $id_kich_co, $id_mau_sac){
-    $sql = "INSERT INTO san_pham(ten_san_pham, anh, mo_ta, gia, giam_gia,so_luong, dac_biet, id_danh_muc, id_kich_co, id_mau_sac) VALUES (?,?,?,?,?,?,?,?,?,?)";
-    pdo_execute($sql,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1,$id_danh_muc, $id_kich_co, $id_mau_sac);
+function san_pham_insert($ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$dac_diem,$id_danh_muc, $id_kich_co, $id_mau_sac){
+    $sql = "INSERT INTO san_pham(ten_san_pham, anh, mo_ta, gia, giam_gia,so_luong, dac_biet,dac_diem, id_danh_muc, id_kich_co, id_mau_sac) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    pdo_execute($sql,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1,$dac_diem,$id_danh_muc, $id_kich_co, $id_mau_sac);
 }
 
-function san_pham_update($id_san_pham,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$id_danh_muc, $id_kich_co, $id_mau_sac){
-    $sql = "UPDATE san_pham SET ten_san_pham=?,anh=?,mo_ta=?,gia=?,giam_gia=?,so_luong=?,dac_biet=?,id_danh_muc=?,id_kich_co=?,id_mau_sac=? WHERE id_san_pham=?";
-    pdo_execute($sql, $ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1,$id_danh_muc, $id_kich_co, $id_mau_sac,$id_san_pham);
+function san_pham_update($id_san_pham,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet, $dac_diem, $id_danh_muc, $id_kich_co, $id_mau_sac){
+    $sql = "UPDATE san_pham SET ten_san_pham=?,anh=?,mo_ta=?,gia=?,giam_gia=?,so_luong=?,dac_biet=?,dac_diem=?,id_danh_muc=?,id_kich_co=?,id_mau_sac=? WHERE id_san_pham=?";
+    pdo_execute($sql, $ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1, $dac_diem, $id_danh_muc, $id_kich_co, $id_mau_sac,$id_san_pham);
 }
 
 function san_pham_delete($id_san_pham){
@@ -88,14 +88,14 @@ function kich_co_select_all($order ='DESC'){
     $sql = "SELECT * FROM kich_co ORDER BY id_kich_co $order";
     return pdo_query($sql);
 }
-function mau_sac_select_all($order ='DESC'){
-    $sql = "SELECT * FROM mau_sac ORDER BY id_mau_sac $order";
-    return pdo_query($sql);
-}
-function mau_sac_select_by_id($id_mau_sac){
-    $sql = "SELECT * FROM mau_sac WHERE id_mau_sac=?";
-    return pdo_query_one($sql, $id_mau_sac);
-}
+// function mau_sac_select_all($order ='DESC'){
+//     $sql = "SELECT * FROM mau_sac ORDER BY id_mau_sac $order";
+//     return pdo_query($sql);
+// }
+// function mau_sac_select_by_id($id_mau_sac){
+//     $sql = "SELECT * FROM mau_sac WHERE id_mau_sac=?";
+//     return pdo_query_one($sql, $id_mau_sac);
+// }
 function san_pham_select_alls(){
     $sql =  $sql = "SELECT s.*,d.ten_danh_muc,m.ten_mau_sac, k.ten_kich_co FROM san_pham s 
     JOIN danh_muc d ON d.id_danh_muc=s.id_danh_muc
