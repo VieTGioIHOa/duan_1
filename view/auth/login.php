@@ -20,7 +20,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <div class="fadeIn first">
-      <h1>Login</h1>
+      <h1 class="title">Login</h1>
     </div>
 
     <!-- Login Form -->
