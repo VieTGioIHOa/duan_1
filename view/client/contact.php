@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
   <head>
 
@@ -51,23 +51,23 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="index.php" class="logo">
                             <img src="../assets/images/logo.png">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="index.html">Men's</a></li>
-                            <li class="scroll-to-section"><a href="index.html">Women's</a></li>
-                            <li class="scroll-to-section"><a href="index.html">Kid's</a></li>
+                            <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="index.php">Men's</a></li>
+                            <li class="scroll-to-section"><a href="index.php">Women's</a></li>
+                            <li class="scroll-to-section"><a href="index.php">Kid's</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="products.php">Products</a></li>
+                                    <li><a href="single-product.php">Single Product</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
@@ -79,7 +79,7 @@ https://templatemo.com/tm-571-hexashop
                                     <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="index.html">Explore</a></li>
+                            <li class="scroll-to-section"><a href="index.php">Explore</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -99,7 +99,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-12">
                     <div class="inner-content">
                         <h2>Contact Us</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                        <span>Awesome, clean &amp; creative php5 Template</span>
                     </div>
                 </div>
             </div>
@@ -308,4 +308,4 @@ https://templatemo.com/tm-571-hexashop
 
   </body>
 
-</html>
+</php>
