@@ -27,7 +27,7 @@
                         foreach ($list as $item) {
                             extract($item);
                             $suagt = "index.php?act=suagt&id_gioi_thieu=" . $id_gioi_thieu;
-                            $img_path = "../uploaded/images/". $anh;
+                            $img_path = "../../uploaded/images/". $anh;
                             if (is_file($img_path)) {
                                 $img = "<img src='$img_path' height='130' width='130' class='object-fit-contain'>";
                             } else {

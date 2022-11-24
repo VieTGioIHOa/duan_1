@@ -1,19 +1,19 @@
 <?php
 include 'header.php';
-include '../models/danhmuc.php';
-include '../models/gioitinh.php';
-include '../models/sanpham.php';
-include '../models/taikhoan.php';
-include '../models/lienhe.php';
-include '../models/gioithieu.php';
-include '../models/mausac.php';
-include '../models/thongke.php';
-include '../models/tintuc.php';
-// include '../models/binhluan.php';
-// include '../models/cart.php';
+include '../../models/danhmuc.php';
+include '../../models/gioitinh.php';
+include '../../models/sanpham.php';
+include '../../models/taikhoan.php';
+include '../../models/lienhe.php';
+include '../../models/gioithieu.php';
+include '../../models/mausac.php';
+include '../../models/thongke.php';
+include '../../models/tintuc.php';
+// include '../../models/binhluan.php';
+// include '../../models/cart.php';
 
-            /*------------------------THỐNG KÊ---------------------- */
-            $list_thongke = load_all_thongke();
+/*------------------------THỐNG KÊ---------------------- */
+$list_thongke = load_all_thongke();
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -86,7 +86,7 @@ if (isset($_GET['act'])) {
                         move_uploaded_file($img['tmp_name'], $target_file);
                     }
                 }
-                $id_san_pham = san_pham_insert($ten_san_pham, $imgname, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$dac_diem,$id_danh_muc);
+                $id_san_pham = san_pham_insert($ten_san_pham, $imgname, $mo_ta, $gia, $giam_gia, $so_luong, $dac_biet, $dac_diem, $id_danh_muc);
                 //Mảng ảnh mô tả
                 if (isset($_FILES['anhs'])) {
                     $file = $_FILES['anhs'];
@@ -173,8 +173,8 @@ if (isset($_GET['act'])) {
                 }
                 if ($upload != false) {
                     move_uploaded_file($img['tmp_name'], $target_file);
-                    san_pham_update($id_san_pham,$ten_san_pham, $hinh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet, $dac_diem, $id_danh_muc);
-                    $thongbao = "Thêm thành công";
+                    san_pham_update($id_san_pham, $ten_san_pham, $hinh, $mo_ta, $gia, $giam_gia, $so_luong, $dac_biet, $dac_diem, $id_danh_muc);
+                    $thongbao = "Sửa thành công";
                 }
 
                 //Mảng ảnh mô tả
@@ -192,19 +192,19 @@ if (isset($_GET['act'])) {
                 }
                 if (isset($_POST['id_kich_co'])) {
                     $size = $_POST['id_kich_co'];
-                        san_pham_size_delete($id_san_pham);
-                        foreach ($size as $key => $value) {
-                            san_pham_size_insert($id_san_pham, $value);
-                            // $thongbao = "Thêm thành công";
-                        }    
+                    san_pham_size_delete($id_san_pham);
+                    foreach ($size as $key => $value) {
+                        san_pham_size_insert($id_san_pham, $value);
+                        // $thongbao = "Thêm thành công";
+                    }
                 }
                 if (isset($_POST['id_mau_sac'])) {
                     $mau = $_POST['id_mau_sac'];
-                        san_pham_mau_delete($id_san_pham);
-                        foreach ($mau as $key => $value) {
-                            san_pham_mau_insert($id_san_pham, $value);
-                            // $thongbao = "Thêm thành công";
-                        }    
+                    san_pham_mau_delete($id_san_pham);
+                    foreach ($mau as $key => $value) {
+                        san_pham_mau_insert($id_san_pham, $value);
+                        // $thongbao = "Thêm thành công";
+                    }
                 }
             }
 
@@ -501,6 +501,10 @@ if (isset($_GET['act'])) {
             }
             $list = tin_tuc_select_all();
             include 'tintuc/list.php';
+            break;
+        case 'home':
+        
+            include 'home.php';
             break;
     }
 } else {

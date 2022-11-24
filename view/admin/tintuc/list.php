@@ -30,7 +30,7 @@
                             extract($item);
                             $suatt = "index.php?act=suatt&id_tin_tuc=" . $id_tin_tuc;
                             $xoatt = "index.php?act=xoatt&id_tin_tuc=" . $id_tin_tuc;
-                            $img_path = "../uploaded/tintuc/". $anh_chinh;
+                            $img_path = "../../uploaded/tintuc/". $anh_chinh;
                             if (is_file($img_path)) {
                                 $img = "<img src='$img_path' height='100' width='200' class='object-fit-contain'>";
                             } else {

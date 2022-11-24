@@ -3,7 +3,7 @@
         <h4 class="mt-5 font-weight-bold text-center">Danh sách hàng hóa</h4>
         <?php
         if (isset($thongbao)) { ?>
-            <p class="alert alert-danger"><?= $thongbao ?></p>
+            <p class="alert alert-success"><?= $thongbao ?></p>
         <?php
         }
         ?>
@@ -36,7 +36,7 @@
                             extract($item);
                             $suahh = "index.php?act=suasp&id_san_pham=" . $id_san_pham;
                             $xoahh = "index.php?act=xoasp&id_san_pham=" . $id_san_pham;
-                            $img_path = "../uploaded/images/" . $anh;
+                            $img_path = "../../uploaded/images/" . $anh;
                             if (is_file($img_path)) {
                                 $img = "<img src='$img_path' height='100' width='100' class='object-fit-contain'>";
                             } else {

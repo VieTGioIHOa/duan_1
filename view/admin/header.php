@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD:admin/header.php
 
 <head>
   <meta charset="UTF-8">
@@ -9,22 +8,9 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../view/css/style.css">
-  <link rel="stylesheet" href="../view/icons/fontawesome-free-6.2.0-web/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../icons/fontawesome-free-6.2.0-web/css/all.min.css">
 
-
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../view/css/style.css">
-    <link rel="stylesheet" href="../view/icons/fontawesome-free-6.2.0-web/css/all.min.css">
->>>>>>> d4b7d0da4c8a7b0f3d6c9e0dd0d08d64d3ef1e0c:view/admin/header.php
-</head>
 
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -95,7 +81,7 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <a href="home.php" class="nav-link">
+              <a href="index.php?act=home" class="nav-link">
                 <svg class="bi pe-none me-2" width="16" height="16">
                   <use xlink:href="#home" />
                 </svg>

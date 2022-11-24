@@ -5,7 +5,7 @@
     }
     ?>
     <?php
-    $img_path = "../uploaded/images/" . $anh;
+    $img_path = "../../uploaded/images/" . $anh;
     if (is_file($img_path)) {
         $img = "<img src='$img_path' height='120'>";
     } else {

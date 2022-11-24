@@ -4,7 +4,7 @@ if (is_array($hh)) {
 }
 ?>
 <?php
-$img_path = "../uploaded/images/" . $anh;
+$img_path = "../../uploaded/images/" . $anh;
 if (is_file($img_path)) {
     $img = "<img src='" . $img_path . "' height='60'>";
 } else {
@@ -148,7 +148,7 @@ if (is_file($img_path)) {
                                     </div>
                                     <?php foreach ($hh_img as $key => $value) {?>
                                        <div class="col-sm-4">
-                                            <img src="../uploaded/images/<?=$value['anh']?>" alt="" width="150">
+                                            <img src="../../uploaded/images/<?=$value['anh']?>" alt="" width="150">
                                     </div> 
                                     <?php }?>
                                     

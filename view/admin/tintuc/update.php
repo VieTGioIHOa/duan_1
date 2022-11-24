@@ -4,7 +4,7 @@
     // extract($tin_img);
     ?>
     <?php
-    $img_path = "../uploaded/tintuc/" . $anh_chinh;
+    $img_path = "../../uploaded/tintuc/" . $anh_chinh;
     if (is_file($img_path)) {
         $img = "<img src='$img_path' height='120'>";
     } else {
@@ -81,7 +81,7 @@
                                     </div>
                                     <?php foreach ($tin_img as $key => $value) {?>
                                        <div class="col-sm-4">
-                                            <img src="../uploaded/tintuc/<?=$value['anh']?>" alt="" width="200">
+                                            <img src="../../uploaded/tintuc/<?=$value['anh']?>" alt="" width="200">
                                     </div> 
                                     <?php }?>
                                     

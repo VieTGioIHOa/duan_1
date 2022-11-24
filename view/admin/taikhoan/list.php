@@ -33,7 +33,7 @@
                                 extract($item);
                                 $suakh = "index.php?act=suatk&id_tai_khoan=" . $id_tai_khoan;
                                 $xoakh = "index.php?act=xoatk&id_tai_khoan=" . $id_tai_khoan;
-                                $img_path = "../uploaded/user/" . $anh;
+                                $img_path = "../../uploaded/user/" . $anh;
                                 if (is_file($img_path)) {
                                     $img = "<img src='$img_path' height='100' width='100' class='rounded-circle object-fit-cover'>";
                                 } else {
