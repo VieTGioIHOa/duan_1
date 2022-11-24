@@ -118,7 +118,7 @@
             </div>
         
             <div class="float-right">
-              <a href="home.php"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button></a>
+              <a href="index.php"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button></a>
               <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
             </div>
         

@@ -1,54 +1,4 @@
-<!DOCTYPE php>
-<php lang="en">
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-    <title>Hexashop - Contact Page</title>
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
-
-    <link rel="stylesheet" href="../assets/css/templatemo-hexashop.css">
-
-    <link rel="stylesheet" href="../assets/css/owl-carousel.css">
-
-    <link rel="stylesheet" href="../assets/css/lightbox.css">
-<!--
-
-TemplateMo 571 Hexashop
-
-https://templatemo.com/tm-571-hexashop
-
--->
-    </head>
-    
-    <body>
-    
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-    
-    
-    <!-- ***** Header Area Start ***** -->
-    <?php include_once 'header.php'; ?>
-    <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Main Banner Area Start ***** -->
     <div class="page-heading about-page-heading" id="top">
         <div class="container">
             <div class="row">
@@ -114,8 +64,9 @@ https://templatemo.com/tm-571-hexashop
             <div class="row">
                 <div class="col-lg-8">
                     <div class="section-heading">
-                        <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                      <h2>ĐĂNG KÝ THÔNG TIN ĐỂ NHẬN NHỮNG CHƯƠNG TRÌNH ƯU ĐÃI LỚN.</h2>
+                      <span>“Đặt sự hài lòng của khách hàng là ưu tiên số 1 trong mọi suy nghĩ hành động của mình” là sứ mệnh, là
+                      triết lý, chiến lược.. luôn cùng YODY tiến bước.</span>
                     </div>
                     <form id="subscribe" action="" method="get">
                         <div class="row">
@@ -139,71 +90,24 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 <div class="col-lg-4">
                     <div class="row">
-                        <div class="col-6">
-                            <ul>
-                                <li>Store Location:<br><span>Sunny Isles Beach, FL 33160, United States</span></li>
-                                <li>Phone:<br><span>010-020-0340</span></li>
-                                <li>Office Location:<br><span>North Miami Beach</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul>
-                                <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>
-                                <li>Email:<br><span>info@company.com</span></li>
-                                <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>, <a href="#">Linkedin</a></span></li>
-                            </ul>
-                        </div>
+                    <div class="col-6">
+                      <ul>
+                        <li>Store Location:<br><span>6 Trịnh Văn Bô, Xuân Phương, Quận Nam Từ Liêm, Hà Nội.</span></li>
+                        <li>Phone:<br><span>010-020-0340</span></li>
+                        <li>Office Location:<br><span>FPOLYTECHNIC, KHU NHÀ P, P402.</span></li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <ul>
+                        <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>
+                        <li>Email:<br><span>yodyfpt@company.com</span></li>
+                        <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>,
+                            <a href="#">Linkedin</a></span></li>
+                      </ul>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***** Subscribe Area Ends ***** -->
-
-    <!-- ***** Footer Start ***** -->
     
-    <?php include_once 'footer.php';?>
-
-    <!-- jQuery -->
-    <script src="../assets/js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="../assets/js/popper.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="../assets/js/owl-carousel.js"></script>
-    <script src="../assets/js/accordions.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
-    <script src="../assets/js/scrollreveal.min.js"></script>
-    <script src="../assets/js/waypoints.min.js"></script>
-    <script src="../assets/js/jquery.counterup.min.js"></script>
-    <script src="../assets/js/imgfix.min.js"></script> 
-    <script src="../assets/js/slick.js"></script> 
-    <script src="../assets/js/lightbox.js"></script> 
-    <script src="../assets/js/isotope.js"></script> 
-    
-    <!-- Global Init -->
-    <script src="../assets/js/custom.js"></script>
-
-    <script>
-
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-                
-            });
-        });
-
-    </script>
-
-  </body>
-
-</php>
