@@ -25,7 +25,7 @@
                             </div>
                             <!-- <div class="form-group col-sm-4">
                                 <label class="form-label">Kích cỡ</label>
-                                <select name="id_kich_co" multiple="multiple" class="form-control">
+                                <select name="id_kich_co"  class="form-control">
                                     <?php
                                     foreach ($listkichco as $size) {
                                         extract($size);
@@ -35,16 +35,26 @@
                                 </select>
                             </div> -->
                             <div class="form-group col-sm-4">
-                                <label class="form-label">Kích cỡ</label>
+                                <label class="form-label checkbox">Kích cỡ</label> <br>
                                     <?php
                                     foreach ($listkichco as $size) {
                                         extract($size);
-                                        echo '<input name="id_kich_co[]" type="checkbox" value="' . $id_kich_co . '">' . $ten_kich_co . '>';
+                                        echo '<input name="id_kich_co[]" type="checkbox" value="' . $id_kich_co . '">' .$ten_kich_co .' | ' ;
                                     }
                                     ?>
                               
                             </div>
                             <div class="form-group col-sm-4">
+                                <label class="form-label">Màu sắc</label> <br>
+                                    <?php
+                                    foreach ($listmausac as $color) {
+                                        extract($color);
+                                        echo '<input name="id_mau_sac[]"  type="checkbox" value="' . $id_mau_sac . '">' .$ten_mau_sac .' | ' ;
+                                    }
+                                    ?>
+                              
+                            </div>
+                            <!-- <div class="form-group col-sm-4">
                                 <label class="form-label">Màu sắc</label>
                                 <select name="id_mau_sac" class="form-control">
                                     <?php
@@ -54,10 +64,10 @@
                                     }
                                     ?>
                                 </select>
-                            </div>
+                            </div> -->
 
                         </div>
-                        <div class="row">
+                        <div class="row my-3">
                             <div class="form-group col-sm-4">
                                 <label class="form-label">Tên sản phẩm</label>
                                 <input type="text" name="ten_san_pham" class="form-control">
@@ -67,7 +77,7 @@
                                 <input type="file" multiple="multiple" name="anh" id="anh" class="form-control">
                             </div>
                             <div class="form-group col-sm-4">
-                                <label>Hàng đặc biệt?</label>
+                                <label class="form-label">Hàng đặc biệt?</label>
                                 <div class="form-control">
                                     <label class="radio-inline  mr-3">
                                         <input type="radio" value="1" name="dac_biet">Đặc biệt
@@ -100,6 +110,12 @@
                                 <input type="date" name="ngay_nhap" class="form-control">
                             </div> -->
                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label class="form-label">Ảnh mô tả</label>
+                                <input type="file" multiple="multiple" name="anhs[]" class="form-control">
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-12">

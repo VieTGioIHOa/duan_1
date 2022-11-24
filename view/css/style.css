@@ -8,6 +8,9 @@
 .right{
     width: 100%;
 }
+.left{
+    height: 200px!important;
+}
 .tren{
     width: 100%;
     display: grid;
@@ -45,3 +48,7 @@ li{
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
 #customers tr:hover {background-color: #ddd;}
+
+.form-label{
+    font-weight: 650!important;
+}

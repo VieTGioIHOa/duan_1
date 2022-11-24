@@ -1,18 +1,68 @@
 <?php
 require_once 'pdo.php';
 
-function san_pham_insert($ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$dac_diem,$id_danh_muc, $id_kich_co, $id_mau_sac){
-    $sql = "INSERT INTO san_pham(ten_san_pham, anh, mo_ta, gia, giam_gia,so_luong, dac_biet,dac_diem, id_danh_muc, id_kich_co, id_mau_sac) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-    pdo_execute($sql,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1,$dac_diem,$id_danh_muc, $id_kich_co, $id_mau_sac);
+function san_pham_insert($ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$dac_diem,$id_danh_muc){
+    $sql = "INSERT INTO san_pham(ten_san_pham, anh, mo_ta, gia, giam_gia,so_luong, dac_biet,dac_diem, id_danh_muc) VALUES (?,?,?,?,?,?,?,?,?)";
+   return pdo_execute_lastInsertId($sql,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1,$dac_diem,$id_danh_muc);
 }
 
-function san_pham_update($id_san_pham,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet, $dac_diem, $id_danh_muc, $id_kich_co, $id_mau_sac){
-    $sql = "UPDATE san_pham SET ten_san_pham=?,anh=?,mo_ta=?,gia=?,giam_gia=?,so_luong=?,dac_biet=?,dac_diem=?,id_danh_muc=?,id_kich_co=?,id_mau_sac=? WHERE id_san_pham=?";
-    pdo_execute($sql, $ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1, $dac_diem, $id_danh_muc, $id_kich_co, $id_mau_sac,$id_san_pham);
+function san_pham_img_insert($id_san_pham,$anh){
+    $sql = "INSERT INTO anh_san_pham(id_san_pham,anh) VALUES ('$id_san_pham','$anh')";
+    pdo_execute($sql);
+}
+
+function san_pham_size_insert($id_san_pham,$id_kich_co){
+    $sql = "INSERT INTO san_pham_size(id_san_pham,id_size) VALUES ('$id_san_pham','$id_kich_co')";
+    pdo_execute($sql);
+}
+
+function san_pham_mau_insert($id_san_pham,$id_mau){
+    $sql = "INSERT INTO san_pham_mau(id_san_pham,id_mau) VALUES ('$id_san_pham','$id_mau')";
+    pdo_execute($sql);
+}
+
+function san_pham_update($id_san_pham,$ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet, $dac_diem, $id_danh_muc){
+    $sql = "UPDATE san_pham SET ten_san_pham=?,anh=?,mo_ta=?,gia=?,giam_gia=?,so_luong=?,dac_biet=?,dac_diem=?,id_danh_muc=? WHERE id_san_pham=?";
+    pdo_execute($sql, $ten_san_pham, $anh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet == 1, $dac_diem, $id_danh_muc,$id_san_pham);
 }
 
 function san_pham_delete($id_san_pham){
     $sql = "DELETE FROM san_pham WHERE  id_san_pham=?";
+    if(is_array($id_san_pham)){
+        foreach ($id_san_pham as $id) {
+            pdo_execute($sql, $id);
+        }
+    }
+    else{
+        pdo_execute($sql, $id_san_pham);
+    }
+}
+
+function san_pham_image_delete($id_san_pham){
+    $sql = "DELETE FROM anh_san_pham WHERE id_san_pham=?";
+    if(is_array($id_san_pham)){
+        foreach ($id_san_pham as $id) {
+            pdo_execute($sql, $id);
+        }
+    }
+    else{
+        pdo_execute($sql, $id_san_pham);
+    }
+}
+
+function san_pham_size_delete($id_san_pham){
+    $sql = "DELETE FROM san_pham_size WHERE id_san_pham=?";
+    if(is_array($id_san_pham)){
+        foreach ($id_san_pham as $id) {
+            pdo_execute($sql, $id);
+        }
+    }
+    else{
+        pdo_execute($sql, $id_san_pham);
+    }
+}
+function san_pham_mau_delete($id_san_pham){
+    $sql = "DELETE FROM san_pham_mau WHERE id_san_pham=?";
     if(is_array($id_san_pham)){
         foreach ($id_san_pham as $id) {
             pdo_execute($sql, $id);
@@ -34,6 +84,11 @@ function san_pham_cung_loai($ma_loai){
 function san_pham_select_by_id($id_san_pham){
     $sql = "SELECT * FROM san_pham WHERE id_san_pham=?";
     return pdo_query_one($sql, $id_san_pham);
+}
+
+function san_pham_img_select_by_id($id_san_pham){
+    $sql = "SELECT * FROM anh_san_pham WHERE id_san_pham=?";
+    return pdo_query($sql, $id_san_pham);
 }
 
 function san_pham_exist($id_san_pham){
@@ -84,22 +139,25 @@ function san_pham_exist_add($ten_san_pham)
     $sql = "SELECT count(*) FROM san_pham WHERE ten_san_pham=?";
     return pdo_query_value($sql, $ten_san_pham) > 0;
 }
-function kich_co_select_all($order ='DESC'){
-    $sql = "SELECT * FROM kich_co ORDER BY id_kich_co $order";
+function kich_co_select_all(){
+    $sql = "SELECT * FROM kich_co ";
     return pdo_query($sql);
 }
-// function mau_sac_select_all($order ='DESC'){
-//     $sql = "SELECT * FROM mau_sac ORDER BY id_mau_sac $order";
-//     return pdo_query($sql);
-// }
-// function mau_sac_select_by_id($id_mau_sac){
-//     $sql = "SELECT * FROM mau_sac WHERE id_mau_sac=?";
-//     return pdo_query_one($sql, $id_mau_sac);
-// }
+
 function san_pham_select_alls(){
-    $sql =  $sql = "SELECT s.*,d.ten_danh_muc,m.ten_mau_sac, k.ten_kich_co FROM san_pham s 
-    JOIN danh_muc d ON d.id_danh_muc=s.id_danh_muc
-    JOIN mau_sac m on m.id_mau_sac = s.id_mau_sac 
-    JOIN kich_co k on k.id_kich_co = s.id_kich_co ";
+    $sql = "SELECT s.*,d.ten_danh_muc FROM san_pham s 
+    JOIN danh_muc d ON d.id_danh_muc=s.id_danh_muc";
     return pdo_query($sql);
+}
+function san_pham_select_mau($id_san_pham){
+    $sql = "SELECT m.ten_mau_sac FROM mau_sac m 
+    JOIN san_pham_mau sm ON sm.id_mau=m.id_mau_sac
+    where id_san_pham=?";
+    return pdo_query($sql,$id_san_pham);
+}
+function san_pham_select_size($id_san_pham){
+    $sql = "SELECT k.ten_kich_co, sz.id_size FROM kich_co k 
+    JOIN san_pham_size sz ON sz.id_size=k.id_kich_co
+    where id_san_pham=?";
+    return pdo_query($sql,$id_san_pham);
 }

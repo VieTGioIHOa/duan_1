@@ -36,6 +36,26 @@ if (is_file($img_path)) {
                                 </select>
                             </div>
                             <div class="form-group col-sm-4">
+                                <label class="form-label checkbox">Kích cỡ</label> <br>
+                                    <?php
+                                    foreach ($listkichco as $size) {
+                                        extract($size);
+                                        echo '<input name="id_kich_co[]" type="checkbox" value="' . $id_kich_co . '">' .$ten_kich_co .' | ' ;
+                                    }
+                                    ?>
+                              
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="form-label">Màu sắc</label> <br>
+                                    <?php
+                                    foreach ($listmausac as $color) {
+                                        extract($color);
+                                        echo '<input name="id_mau_sac[]"  type="checkbox" value="' . $id_mau_sac . '">' .$ten_mau_sac .' | ' ;
+                                    }
+                                    ?>
+                              
+                            </div>
+                            <!-- <div class="form-group col-sm-4">
                                 <label class="form-label">Màu sắc</label>
                                 <select name="id_mau_sac" class="form-control" id="id_mau_sac">
                                     <?php
@@ -66,9 +86,9 @@ if (is_file($img_path)) {
                                     ?>
 
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="row">
+                        <div class="row my-3">
                             <div class="form-group col-sm-4">
                                 <label class="form-label">Tên sản phẩm</label>
                                 <input type="text" name="ten_san_pham" class="form-control" required value="<?= $ten_san_pham ?>">
@@ -119,7 +139,21 @@ if (is_file($img_path)) {
                                     </div>
                                 </div>
                             </div>
-                        
+                            <div class="form-group col-sm-8">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-4">
+                                        <label class="form-label">Ảnh mô tả</label>
+                                        
+                                        <input type="file" name="anhmt[]"  multiple="multiple" class="form-control">
+                                    </div>
+                                    <?php foreach ($hh_img as $key => $value) {?>
+                                       <div class="col-sm-4">
+                                            <img src="../uploaded/images/<?=$value['anh']?>" alt="" width="150">
+                                    </div> 
+                                    <?php }?>
+                                    
+                                </div>
+                            </div>
                             
                         </div>
                         <div class="row">

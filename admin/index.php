@@ -12,9 +12,9 @@ include '../models/tintuc.php';
 // include '../models/binhluan.php';
 // include '../models/cart.php';
 
-     /*------------------------THỐNG KÊ---------------------- */
-     $list_thongke = load_all_thongke();
-     
+            /*------------------------THỐNG KÊ---------------------- */
+            $list_thongke = load_all_thongke();
+
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -63,8 +63,6 @@ if (isset($_GET['act'])) {
         case 'addsp':
             if (isset($_POST['themmoi'])) {
                 $id_danh_muc = $_POST['id_danh_muc'];
-                $id_kich_co = $_POST['id_kich_co'];
-                $id_mau_sac = $_POST['id_mau_sac'];
                 $ten_san_pham = $_POST['ten_san_pham'];
                 $gia = $_POST['gia'];
                 $giam_gia = $_POST['giam_gia'];
@@ -79,16 +77,40 @@ if (isset($_GET['act'])) {
                 $dir = "../uploaded/images/";
                 $target_file = $dir . basename($img['name']);
                 $ext = pathinfo($imgname, PATHINFO_EXTENSION);
-                if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
-                    $upload = false;
-                    $thongbao = "File không phải ảnh";
+
+                if (isset($_FILES['anh'])) {
+                    if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
+                        $upload = false;
+                        $thongbao = "File không phải ảnh";
+                    } else {
+                        move_uploaded_file($img['tmp_name'], $target_file);
+                    }
                 }
-                if ($upload != false) {
-                    move_uploaded_file($img['tmp_name'], $target_file);
-                    san_pham_insert($ten_san_pham, $imgname, $mo_ta, $gia, $giam_gia, $so_luong, $dac_biet,$dac_diem, $id_danh_muc, $id_kich_co, $id_mau_sac);
-                    $thongbao = "Thêm thành công";             
+                $id_san_pham = san_pham_insert($ten_san_pham, $imgname, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet,$dac_diem,$id_danh_muc);
+                //Mảng ảnh mô tả
+                if (isset($_FILES['anhs'])) {
+                    $file = $_FILES['anhs'];
+                    $file_names = $file['name'];
+                    foreach ($file_names as $key => $value) {
+                        move_uploaded_file($file['tmp_name'][$key], '../uploaded/images/' . $value);
+                        san_pham_img_insert($id_san_pham, $value);
+                        $thongbao = "Thêm thành công";
+                    }
                 }
-                var_dump($id_kich_co);
+                if (isset($_POST['id_kich_co'])) {
+                    $size = $_POST['id_kich_co'];
+                    foreach ($size as $key => $value) {
+                        san_pham_size_insert($id_san_pham, $value);
+                        $thongbao = "Thêm thành công";
+                    }
+                }
+                if (isset($_POST['id_mau_sac'])) {
+                    $mau = $_POST['id_mau_sac'];
+                    foreach ($mau as $key => $value) {
+                        san_pham_mau_insert($id_san_pham, $value);
+                        $thongbao = "Thêm thành công";
+                    }
+                }
             }
             $listdanhmuc = danh_muc_select_all();
             $listkichco = kich_co_select_all();
@@ -99,10 +121,11 @@ if (isset($_GET['act'])) {
             $listhh = san_pham_select_alls();
             include 'sanpham/list.php';
             break;
-        case 'xoahh':
-            if (isset($_GET['id_san_pham']) && ($_GET['id_san_pham'] > 0)) {
+        case 'xoasp':
+            if (isset($_GET['id_san_pham'])) {
                 $id_san_pham = $_GET['id_san_pham'];
                 $xoa = san_pham_delete($id_san_pham);
+                $xoa_img = san_pham_image_delete($id_san_pham);
                 $thongbao = "Xóa thành công";
             }
             $listhh = san_pham_select_alls();
@@ -111,8 +134,11 @@ if (isset($_GET['act'])) {
         case 'suasp':
             if (isset($_GET['id_san_pham']) && ($_GET['id_san_pham'] > 0)) {
                 $hh = san_pham_select_by_id($_GET['id_san_pham']);
+                $hh_img = san_pham_img_select_by_id($_GET['id_san_pham']);
             }
             $hang_hoa_info = san_pham_select_by_id($_GET['id_san_pham']);
+            $mau_info = san_pham_select_mau($_GET['id_san_pham']);
+            $size_info = san_pham_select_size($_GET['id_san_pham']);
             $listdm = danh_muc_select_all();
             $listkichco = kich_co_select_all();
             $listmausac = mau_sac_select_all();
@@ -122,13 +148,11 @@ if (isset($_GET['act'])) {
             if (isset($_POST['capnhat'])) {
                 $id_san_pham = $_POST['id_san_pham'];
                 $id_danh_muc = $_POST['id_danh_muc'];
-                $id_kich_co = $_POST['id_kich_co'];
-                $id_mau_sac = $_POST['id_mau_sac'];
                 $ten_san_pham = $_POST['ten_san_pham'];
                 $gia = $_POST['gia'];
                 $giam_gia = $_POST['giam_gia'];
-                $dac_biet = $_POST['dac_biet']; 
-                $dac_diem = $_POST['dac_diem'];        
+                $dac_biet = $_POST['dac_biet'];
+                $dac_diem = $_POST['dac_diem'];
                 $so_luong = $_POST['so_luong'];
                 $mo_ta = $_POST['mo_ta'];
                 $img = $_FILES['anh'];
@@ -147,14 +171,40 @@ if (isset($_GET['act'])) {
                     $upload = false;
                     $thongbao = "File không phải ảnh";
                 }
-                // if (file_exists($target_file)) {
-                //     $upload = false;
-                //     $thongbao = "Tên file đã tồn tại trên server, không được ghi đè";
-                // }
                 if ($upload != false) {
                     move_uploaded_file($img['tmp_name'], $target_file);
-                    san_pham_update($id_san_pham, $ten_san_pham, $hinh, $mo_ta, $gia, $giam_gia, $so_luong, $dac_biet,$dac_diem, $id_danh_muc, $id_kich_co, $id_mau_sac);
-                    $thongbao = "Sửa thành công";
+                    san_pham_update($id_san_pham,$ten_san_pham, $hinh, $mo_ta, $gia, $giam_gia,$so_luong, $dac_biet, $dac_diem, $id_danh_muc);
+                    $thongbao = "Thêm thành công";
+                }
+
+                //Mảng ảnh mô tả
+                if (isset($_FILES['anhmt'])) {
+                    $file = $_FILES['anhmt'];
+                    $file_names = $file['name'];
+                    if (!empty($file_names[0])) {
+                        san_pham_image_delete($id_san_pham);
+                        foreach ($file_names as $key => $value) {
+                            move_uploaded_file($file['tmp_name'][$key], '../uploaded/images/' . $value);
+                            san_pham_img_insert($id_san_pham, $value);
+                            // $thongbao = "Thêm thành công";
+                        }
+                    }
+                }
+                if (isset($_POST['id_kich_co'])) {
+                    $size = $_POST['id_kich_co'];
+                        san_pham_size_delete($id_san_pham);
+                        foreach ($size as $key => $value) {
+                            san_pham_size_insert($id_san_pham, $value);
+                            // $thongbao = "Thêm thành công";
+                        }    
+                }
+                if (isset($_POST['id_mau_sac'])) {
+                    $mau = $_POST['id_mau_sac'];
+                        san_pham_mau_delete($id_san_pham);
+                        foreach ($mau as $key => $value) {
+                            san_pham_mau_insert($id_san_pham, $value);
+                            // $thongbao = "Thêm thành công";
+                        }    
                 }
             }
 
@@ -282,7 +332,7 @@ if (isset($_GET['act'])) {
         case 'upgt':
             if (isset($_POST['capnhat'])) {
                 $id_gioi_thieu = $_POST['id_gioi_thieu'];
-                $tieu_de= $_POST['tieu_de'];
+                $tieu_de = $_POST['tieu_de'];
                 $noi_dung = $_POST['noi_dung'];
                 $anh  = $_POST['hinh'];
                 $img = $_FILES['hinh'];
@@ -301,7 +351,7 @@ if (isset($_GET['act'])) {
                 }
                 if ($upload != false) {
                     move_uploaded_file($img['tmp_name'], $target_file);
-                    gioi_thieu_update($id_gioi_thieu,$tieu_de,$anh,$noi_dung);
+                    gioi_thieu_update($id_gioi_thieu, $tieu_de, $anh, $noi_dung);
                     $thongbao = "Sửa thành công";
                 }
             }
@@ -309,12 +359,12 @@ if (isset($_GET['act'])) {
             include 'gioi_thieu/list.php';
             break;
 
-          /*------------------------MÀU SẮC---------------------- */
-          case 'addms':
-            if(isset($_POST['themmoi'])){
+            /*------------------------MÀU SẮC---------------------- */
+        case 'addms':
+            if (isset($_POST['themmoi'])) {
                 $ten_mau_sac = $_POST['ten_mau_sac'];
                 mau_sac_insert($ten_mau_sac);
-                $thongbao ="Thêm thành công";
+                $thongbao = "Thêm thành công";
             }
             include 'mausac/add.php';
             break;
@@ -323,34 +373,34 @@ if (isset($_GET['act'])) {
             include 'mausac/list.php';
             break;
         case 'xoams':
-            if(isset($_GET['id_mau_sac'])&& ($_GET['id_mau_sac']>0)){
+            if (isset($_GET['id_mau_sac']) && ($_GET['id_mau_sac'] > 0)) {
                 $id_mau_sac = $_GET['id_mau_sac'];
                 $xoa = mau_sac_delete($id_mau_sac);
-                $thongbao ="Xóa thành công";
-            } 
-            $list = mau_sac_select_all();
-            include 'mausac/list.php';
-            break;
-        case 'suams':
-            if(isset($_GET['id_mau_sac'])&& ($_GET['id_mau_sac']>0)){
-                $ms= mau_sac_select_by_id($_GET['id_mau_sac']);
-                } 
-            include 'mausac/update.php';
-            break;
-        case 'upms':
-            if(isset($_POST['capnhat'])){
-                $id_mau_sac = $_POST['id_mau_sac'];
-                $ten_mau_sac = $_POST['ten_mau_sac'];
-                mau_sac_update($id_mau_sac,$ten_mau_sac);
-                $thongbao="Sửa thành công";
+                $thongbao = "Xóa thành công";
             }
             $list = mau_sac_select_all();
             include 'mausac/list.php';
             break;
-         
-        /*------------------------TIN TỨC---------------------- */
+        case 'suams':
+            if (isset($_GET['id_mau_sac']) && ($_GET['id_mau_sac'] > 0)) {
+                $ms = mau_sac_select_by_id($_GET['id_mau_sac']);
+            }
+            include 'mausac/update.php';
+            break;
+        case 'upms':
+            if (isset($_POST['capnhat'])) {
+                $id_mau_sac = $_POST['id_mau_sac'];
+                $ten_mau_sac = $_POST['ten_mau_sac'];
+                mau_sac_update($id_mau_sac, $ten_mau_sac);
+                $thongbao = "Sửa thành công";
+            }
+            $list = mau_sac_select_all();
+            include 'mausac/list.php';
+            break;
+
+            /*------------------------TIN TỨC---------------------- */
         case 'addtt':
-            if(isset($_POST['themmoi'])){
+            if (isset($_POST['themmoi'])) {
                 $tieu_de = $_POST['tieu_de'];
                 $intro = $_POST['intro'];
                 $noi_dung1 = $_POST['noi_dung1'];
@@ -360,7 +410,70 @@ if (isset($_GET['act'])) {
                 $upload = true;
                 $dir = "../uploaded/tintuc/";
                 $target_file = $dir . basename($img['name']);
+                $ext = pathinfo($imgname, PATHINFO_EXTENSION);
 
+                if (isset($_FILES['hinh'])) {
+                    if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
+                        $upload = false;
+                        $thongbao = "File không phải ảnh";
+                    } else {
+                        move_uploaded_file($img['tmp_name'], $target_file);
+                    }
+                }
+                $id_tin = tin_tuc_insert($tieu_de, $intro, $noi_dung1, $imgname, $noi_dung2);
+                //Mảng ảnh mô tả
+                if (isset($_FILES['hinhs'])) {
+                    $file = $_FILES['hinhs'];
+                    $file_names = $file['name'];
+                    foreach ($file_names as $key => $value) {
+                        move_uploaded_file($file['tmp_name'][$key], '../uploaded/tintuc/' . $value);
+                        tin_tuc_img_insert($id_tin, $value);
+                        $thongbao = "Thêm thành công";
+                    }
+                }
+            }
+            include 'tintuc/add.php';
+            break;
+        case 'listtt':
+            $list = tin_tuc_select_all();
+            include 'tintuc/list.php';
+            break;
+        case 'xoatt':
+            if (isset($_GET['id_tin_tuc'])) {
+                $id_tin_tuc = $_GET['id_tin_tuc'];
+                $xoa = tin_tuc_delete($id_tin_tuc);
+                $xoa_img = tin_tuc_image_delete($id_tin_tuc);
+                $thongbao = "Xóa thành công";
+            }
+            $list = tin_tuc_select_all();
+            include 'tintuc/list.php';
+            break;
+        case 'suatt':
+            if (isset($_GET['id_tin_tuc'])) {
+                $tin = tin_tuc_select_by_id($_GET['id_tin_tuc']);
+                $tin_img = tin_tuc_img_select_by_id($_GET['id_tin_tuc']);
+            }
+
+            $list = tin_tuc_select_all();
+            include 'tintuc/update.php';
+            break;
+        case 'uptt':
+            if (isset($_POST['capnhat'])) {
+                $id_tin_tuc = $_POST['id_tin_tuc'];
+                $tieu_de = $_POST['tieu_de'];
+                $intro = $_POST['intro'];
+                $noi_dung1 = $_POST['noi_dung1'];
+                $noi_dung2 = $_POST['noi_dung2'];
+                $anh  = $_POST['hinh'];
+                $img = $_FILES['hinh'];
+                $imgname = $_FILES['hinh']['name'];
+                $upload = true;
+                $dir = "../uploaded/tintuc/";
+                $target_file = $dir . basename($img['name']);
+
+                if ($_FILES['hinh']['size'] > 0) {
+                    $anh = $_FILES['hinh']['name'];
+                }
                 $ext = pathinfo($anh, PATHINFO_EXTENSION);
                 if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
                     $upload = false;
@@ -368,22 +481,27 @@ if (isset($_GET['act'])) {
                 }
                 if ($upload != false) {
                     move_uploaded_file($img['tmp_name'], $target_file);
-                    tin_tuc_insert($tieu_de,$intro,$noi_dung1,$imgname,$noi_dung2);
-                    // $thongbao = "Thêm thành công";
+                    tin_tuc_update($tieu_de, $intro, $noi_dung1, $anh, $noi_dung2, $id_tin_tuc);
+                    $thongbao = "Sửa thành công";
                 }
-                if(isset($_FILES['hinhs'])){
-                    $file = $_FILES['hinhs'];
+
+                //Mảng ảnh mô tả
+                if (isset($_FILES['hinhmt'])) {
+                    $file = $_FILES['hinhmt'];
                     $file_names = $file['name'];
-
-                    foreach ($file_names as $key => $value) {
-                        move_uploaded_file($file['tmp_name'][$key],'../uploaded/tintuc'.$value);
+                    if (!empty($file_names[0])) {
+                        tin_tuc_image_delete($id_tin_tuc);
+                        foreach ($file_names as $key => $value) {
+                            move_uploaded_file($file['tmp_name'][$key], '../uploaded/tintuc/' . $value);
+                            tin_tuc_img_insert($id_tin_tuc, $value);
+                            // $thongbao = "Thêm thành công";
+                        }
                     }
-
                 }
             }
-            include 'tintuc/add.php';
+            $list = tin_tuc_select_all();
+            include 'tintuc/list.php';
             break;
-       
     }
 } else {
     include 'home.php';
