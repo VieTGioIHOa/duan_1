@@ -76,9 +76,9 @@
                         <td>' . $maloai . '</td>
                         <td>' . $tenloai . '</td>
                         <td>' . $countsp . '</td>
-                        <td>' . $maxgia . '$</td>
-                        <td>' . $mingia . '$</td>
-                        <td>' . $tb . '$</td>
+                        <td>' . $maxgia . ' vnđ</td>
+                        <td>' . $mingia . ' vnđ</td>
+                        <td>' . $tb . ' vnđ</td>
                     </tr>
                     ';
                     }

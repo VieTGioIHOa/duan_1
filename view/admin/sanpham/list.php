@@ -16,7 +16,6 @@
                 <table width="100%" class="table table-hover table-bordered text-center">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Mã SP</th>
                             <th>Tên sản phẩm</th>
                             <th>Ảnh</th>
                             <th>Đơn giá</th>
@@ -38,7 +37,7 @@
                             $xoahh = "index.php?act=xoasp&id_san_pham=" . $id_san_pham;
                             $img_path = "../../uploaded/images/" . $anh;
                             if (is_file($img_path)) {
-                                $img = "<img src='$img_path' height='100' width='100' class='object-fit-contain'>";
+                                $img = "<img src='$img_path' height='120' width='120' class='object-fit-contain'>";
                             } else {
                                 $img = "no photo";
                             }
@@ -47,7 +46,7 @@
                         ?>
                         
                             <tr>
-                                <td><?= $id_san_pham ?></td>
+                        
                                 <td><?= $ten_san_pham ?></td>
                                 <td><?= $img ?></td>
                                 <td><?= $gia ?>VNĐ</td>

@@ -74,7 +74,7 @@ if (isset($_GET['act'])) {
                 $imgname = $_FILES['anh']['name'];
                 $maxSize = 8000000; /*byte sang mb*/
                 $upload = true;
-                $dir = "../uploaded/images/";
+                $dir = "../../uploaded/images/";
                 $target_file = $dir . basename($img['name']);
                 $ext = pathinfo($imgname, PATHINFO_EXTENSION);
 
@@ -92,7 +92,7 @@ if (isset($_GET['act'])) {
                     $file = $_FILES['anhs'];
                     $file_names = $file['name'];
                     foreach ($file_names as $key => $value) {
-                        move_uploaded_file($file['tmp_name'][$key], '../uploaded/images/' . $value);
+                        move_uploaded_file($file['tmp_name'][$key], '../../uploaded/images/' . $value);
                         san_pham_img_insert($id_san_pham, $value);
                         $thongbao = "Thêm thành công";
                     }
@@ -124,8 +124,11 @@ if (isset($_GET['act'])) {
         case 'xoasp':
             if (isset($_GET['id_san_pham'])) {
                 $id_san_pham = $_GET['id_san_pham'];
-                $xoa = san_pham_delete($id_san_pham);
                 $xoa_img = san_pham_image_delete($id_san_pham);
+                $xoa_mau = san_pham_mau_delete($id_san_pham);
+                $xoa_size = san_pham_size_delete($id_san_pham);
+                $xoa = san_pham_delete($id_san_pham);
+                
                 $thongbao = "Xóa thành công";
             }
             $listhh = san_pham_select_alls();
@@ -160,7 +163,7 @@ if (isset($_GET['act'])) {
                 $imgname = $_FILES['anh']['name'];
                 $maxSize = 8000000; /*byte sang mb*/
                 $upload = true;
-                $dir = "../uploaded/images/";
+                $dir = "../../uploaded/images/";
                 $target_file = $dir . basename($img['name']);
 
                 if ($_FILES['anh']['size'] > 0) {
@@ -184,7 +187,7 @@ if (isset($_GET['act'])) {
                     if (!empty($file_names[0])) {
                         san_pham_image_delete($id_san_pham);
                         foreach ($file_names as $key => $value) {
-                            move_uploaded_file($file['tmp_name'][$key], '../uploaded/images/' . $value);
+                            move_uploaded_file($file['tmp_name'][$key], '../../uploaded/images/' . $value);
                             san_pham_img_insert($id_san_pham, $value);
                             // $thongbao = "Thêm thành công";
                         }
@@ -225,7 +228,7 @@ if (isset($_GET['act'])) {
                 $imgname = $_FILES['anh']['name'];
                 $maxSize = 300000;
                 $upload = true;
-                $dir = "../uploaded/user/";
+                $dir = "../../uploaded/user/";
                 $target_file = $dir . basename($img['name']);
                 $ext = pathinfo($imgname, PATHINFO_EXTENSION);
                 if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
@@ -277,7 +280,7 @@ if (isset($_GET['act'])) {
                 $imgname = $_FILES['hinh']['name'];
                 $maxSize = 3000000;
                 $upload = true;
-                $dir = "../uploaded/user/";
+                $dir = "../../uploaded/user/";
                 $target_file = $dir . basename($img['name']);
 
                 if ($_FILES['hinh']['size'] > 0) {
@@ -338,7 +341,7 @@ if (isset($_GET['act'])) {
                 $img = $_FILES['hinh'];
                 $imgname = $_FILES['hinh']['name'];
                 $upload = true;
-                $dir = "../uploaded/images/";
+                $dir = "../../uploaded/images/";
                 $target_file = $dir . basename($img['name']);
 
                 if ($_FILES['hinh']['size'] > 0) {
@@ -408,7 +411,7 @@ if (isset($_GET['act'])) {
                 $img = $_FILES['hinh'];
                 $imgname = $_FILES['hinh']['name'];
                 $upload = true;
-                $dir = "../uploaded/tintuc/";
+                $dir = "../../uploaded/tintuc/";
                 $target_file = $dir . basename($img['name']);
                 $ext = pathinfo($imgname, PATHINFO_EXTENSION);
 
@@ -426,7 +429,7 @@ if (isset($_GET['act'])) {
                     $file = $_FILES['hinhs'];
                     $file_names = $file['name'];
                     foreach ($file_names as $key => $value) {
-                        move_uploaded_file($file['tmp_name'][$key], '../uploaded/tintuc/' . $value);
+                        move_uploaded_file($file['tmp_name'][$key], '../../uploaded/tintuc/' . $value);
                         tin_tuc_img_insert($id_tin, $value);
                         $thongbao = "Thêm thành công";
                     }
@@ -468,7 +471,7 @@ if (isset($_GET['act'])) {
                 $img = $_FILES['hinh'];
                 $imgname = $_FILES['hinh']['name'];
                 $upload = true;
-                $dir = "../uploaded/tintuc/";
+                $dir = "../../uploaded/tintuc/";
                 $target_file = $dir . basename($img['name']);
 
                 if ($_FILES['hinh']['size'] > 0) {
@@ -492,7 +495,7 @@ if (isset($_GET['act'])) {
                     if (!empty($file_names[0])) {
                         tin_tuc_image_delete($id_tin_tuc);
                         foreach ($file_names as $key => $value) {
-                            move_uploaded_file($file['tmp_name'][$key], '../uploaded/tintuc/' . $value);
+                            move_uploaded_file($file['tmp_name'][$key], '../../uploaded/tintuc/' . $value);
                             tin_tuc_img_insert($id_tin_tuc, $value);
                             // $thongbao = "Thêm thành công";
                         }
