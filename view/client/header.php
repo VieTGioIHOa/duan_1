@@ -46,27 +46,18 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php" class="active">TRANG CHỦ</a></li>
-                            <li class="scroll-to-section"><a href="#men">NAM</a></li>
-                            <li class="scroll-to-section"><a href="#women">NỮ</a></li>
-                            <li class="scroll-to-section"><a href="#kids">TRẺ EM</a></li>
+                            <li class="scroll-to-section"><a href="index.php?act=sanpham_nam">NAM</a></li>
+                            <li class="scroll-to-section"><a href="index.php?act=sanpham_nu">NỮ</a></li>
+                            <li class="scroll-to-section"><a href="index.php?act=sanpham_te">TRẺ EM</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">YODY</a>
                                 <ul>
                                     <li><a href="index.php?act=about">Giới thiệu</a></li>
-                                    <li><a href="index.php?act=products">Sản phẩm</a></li>
-                                    <li><a href="#">Chi tiết về sản phẩm</a></li>
+                                    <li><a href="index.php?act=tin_tuc">Tin tức</a></li>
                                     <li><a href="index.php?act=contact">Liên hệ</a></li>
                                 </ul>
                             </li>
 
-                            <li class="submenu">
-                                <a href="javascript:;">TIN TỨC</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                </ul>
-                            </li>
 
                             <?php
                             if (isset($_SESSION['user'])) {

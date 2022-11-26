@@ -17,13 +17,82 @@
     // }
     // $listhh_in_tc = hang_hoa_select_dac_biet();
     // $listhh_yt = hang_hoa_select_top10();
+     $nam = san_pham_select_dac_biet_nam();
+     $nu = san_pham_select_dac_biet_nu();
+     $te = san_pham_select_dac_biet_te();
+    // echo('<pre>');
+    //  var_dump($nam);
     if(isset($_GET['act'])&& $_GET['act']!=""){
         $act = $_GET['act'];
         switch($act){
             /*---------------------------LOAD SẢN PHẨM----------------------------- */
+            case 'sanpham_nam':
+                $danh_muc_nam = danh_muc_select_nam();
+                $list_san_pham_nam = [];
+                foreach ($danh_muc_nam as $value) {
+                    $nam_pro=san_pham_select_by_danh_muc($value['id_danh_muc']);
+                    foreach($nam_pro as $item) {
+                        array_push($list_san_pham_nam,$item);
+                    }
+                }
+                include './view/client/men.php';
+                break;
 
-           
+            case 'sanpham_nu':
+                $danh_muc_nu = danh_muc_select_nu();
+                $list_san_pham_nu = [];
+                foreach ($danh_muc_nu as $value) {
+                    $nu_pro=san_pham_select_by_danh_muc($value['id_danh_muc']);
+                    foreach($nu_pro as $item) {
+                        array_push($list_san_pham_nu,$item);
+                    }
+                }
+                include './view/client/women.php';
+                break;
             
+            case 'sanpham_te':
+                $danh_muc_te = danh_muc_select_te();
+                $list_san_pham_te = [];
+                foreach ($danh_muc_te as $value) {
+                    $te_pro=san_pham_select_by_danh_muc($value['id_danh_muc']);
+                    foreach($te_pro as $item) {
+                        array_push($list_san_pham_te,$item);
+                    }
+                }
+                include './view/client/child.php';
+                break;
+
+            /*---------------------------TIN TỨC----------------------------- */
+            case 'news':
+                
+                include './view/client/news.php';
+                break;
+
+             /*---------------------------Giới thiệu----------------------------- */
+            case 'about':
+                $gioi_thieu = gioi_thieu_select_all();
+                if(isset($_POST['lienhe'])){
+                    $ho_ten  = $_POST['ho_ten'];
+                    $email = $_POST['email'];
+                    $noi_dung = $_POST['noi_dung'];
+                    $ngay_bl = date_format(date_create(), 'Y-m-d');
+                    lien_he_insert($ho_ten,$email,$noi_dung,$ngay_bl);
+                    echo'<script language="javascript">alert("Cảm ơn bạn đã liên hệ với chúng tôi, chúng tôi sẽ sớm liện hệ lại với bạn!")</script>';
+                }
+                include './view/client/about.php';
+                break;
+            /*---------------------------LIÊN HỆ----------------------------- */
+            case 'contact':
+                if(isset($_POST['lienhe'])){
+                    $ho_ten  = $_POST['ho_ten'];
+                    $email = $_POST['email'];
+                    $noi_dung = $_POST['noi_dung'];
+                    $ngay_bl = date_format(date_create(), 'Y-m-d');
+                    lien_he_insert($ho_ten,$email,$noi_dung,$ngay_bl);
+                    echo'<script language="javascript">alert("Cảm ơn bạn đã liên hệ với chúng tôi, chúng tôi sẽ sớm liện hệ lại với bạn!")</script>';
+                }
+                include './view/client/contact.php';
+                break;
             /*----------------------------------TÀI KHOẢN---------------------*/
             case 'login':
                 if(isset($_POST['dangnhap'])){

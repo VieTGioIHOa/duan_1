@@ -65,3 +65,16 @@ function danh_muc_exist($id_danh_muc){
     $sql = "SELECT count(*) FROM danh_muc WHERE id_danh_muc=?";
     return pdo_query_value($sql, $id_danh_muc) > 0;
 }
+
+function danh_muc_select_nam(){
+    $sql = "SELECT * FROM danh_muc WHERE id_gioi_tinh=1";
+    return pdo_query($sql);
+}
+function danh_muc_select_nu(){
+    $sql = "SELECT * FROM danh_muc WHERE id_gioi_tinh=2";
+    return pdo_query($sql);
+}
+function danh_muc_select_te(){
+    $sql = "SELECT * FROM danh_muc WHERE id_gioi_tinh=3";
+    return pdo_query($sql);
+}

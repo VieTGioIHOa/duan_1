@@ -97,15 +97,25 @@ function san_pham_exist($id_san_pham){
 }
 
 
-function san_pham_select_dac_biet(){
-    $sql = "SELECT * FROM san_pham WHERE dac_biet=1";
+function san_pham_select_dac_biet_nam(){
+    $sql = "SELECT * FROM san_pham WHERE dac_biet=2";
     return pdo_query($sql);
 }
+function san_pham_select_dac_biet_nu(){
+    $sql = "SELECT * FROM san_pham WHERE dac_biet=3";
+    return pdo_query($sql);
+}
+function san_pham_select_dac_biet_te(){
+    $sql = "SELECT * FROM san_pham WHERE dac_biet=4";
+    return pdo_query($sql);
+}
+
 
 function san_pham_select_by_danh_muc($id_danh_muc){
     $sql = "SELECT * FROM san_pham WHERE id_danh_muc=?";
     return pdo_query($sql, $id_danh_muc);
 }
+
 
 function san_pham_select_keyword($keyword){
     $sql = "SELECT * FROM san_pham hh "

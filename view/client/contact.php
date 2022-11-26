@@ -19,21 +19,22 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div id="map">
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90186.37207676383!2d-80.13495239500924!3d25.9317678710111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ad1877e4a82d%3A0xa891714787d1fb5e!2sPier%20Park!5e1!3m2!1sen!2sth!4v1637512439384!5m2!1sen!2sth" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.981043889881!2d105.74459841488351!3d21.038127785993215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b991d80fd5%3A0x53cefc99d6b0bf6f!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e1!3m2!1svi!2s!4v1669463832274!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      
                       <!-- You can simply copy and paste "Embed a map" code from Google Maps for any location. -->
                       
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2>Say Hello. Don't Be Shy!</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+                        
                     </div>
-                    <form id="contact" action="" method="post">
+                    <form id="contact" action="index.php?act=contact" method="post">
                         <div class="row">
                           <div class="col-lg-6">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                              <input name="ho_ten" type="text" id="name" placeholder="Your name" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-6">
@@ -43,12 +44,12 @@
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Your message" required=""></textarea>
+                              <textarea name="noi_dung" rows="6" id="message" placeholder="Your message" required=""></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
+                              <button type="submit" name="lienhe" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
                           </div>
                         </div>
                       </form>

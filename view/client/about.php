@@ -1,70 +1,66 @@
-<!-- ***** Preloader End ***** -->
-
-<!-- ***** Header Area Start ***** -->
-
-<!-- ***** Header Area End ***** -->
-
-<!-- ***** Main Banner Area Start ***** -->
-<div class="page-heading about-page-heading" id="top">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="inner-content">
-          <h2>About Our Company</h2>
-          <span>Awesome, clean &amp; creative HTML5 Template</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ***** Main Banner Area End ***** -->
-
-<!-- ***** About Area Starts ***** -->
-<div class="about-us">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="left-image">
-          <img src="view/assets/images/about-left-image.jpg" alt="" />
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="right-content">
-          <h4>About Us &amp; Our Skills</h4>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod kon tempor incididunt ut labore.</span>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiuski smod kon tempor incididunt ut labore.
-            </p>
+<?php
+foreach ($gioi_thieu as $key => $row) : {
+?>
+    ?>
+    <div class="page-heading about-page-heading" id="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="inner-content">
+              <h2>About Our Company</h2>
+              <span>Awesome, clean &amp; creative HTML5 Template</span>
+            </div>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod kon tempor incididunt ut labore et dolore magna aliqua
-            ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip.
-          </p>
-          <ul>
-            <li>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-behance"></i></a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** About Area Starts ***** -->
+    <div class="about-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="left-image">
+              <img src="<?= './uploaded/images/' . $row['anh'] ?> ?>" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="right-content">
+              <h4><?= $row['tieu_de'] ?></h4>
+              <div class="quote">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                  Nếu mọi người không cười vào mục tiêu của bạn, điều đó có nghĩa là mục tiêu của bạn quá nhỏ
+                </p>
+              </div>
+              <p>
+                <?= $row['noi_dung'] ?>
+              </p>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-behance"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <?php
+  }
+  ?>
+<?php endforeach ?>
 <!-- ***** About Area Ends ***** -->
 
 <!-- ***** Our Team Area Starts ***** -->
@@ -171,7 +167,7 @@
 <!-- ***** Our Team Area Ends ***** -->
 
 <!-- ***** Services Area Starts ***** -->
-<section class="our-services">
+<!-- <section class="our-services">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -216,7 +212,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- ***** Services Area Ends ***** -->
 
 <!-- ***** Subscribe Area Starts ***** -->
@@ -229,25 +225,26 @@
           <span>“Đặt sự hài lòng của khách hàng là ưu tiên số 1 trong mọi suy nghĩ hành động của mình” là sứ mệnh, là
             triết lý, chiến lược.. luôn cùng YODY tiến bước.</span>
         </div>
-        <form id="subscribe" action="" method="get">
+        <form id="contact" action="index.php?act=contact" method="post">
           <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
               <fieldset>
-                <input name="name" type="text" id="name" placeholder="Your Name" required="" />
+                <input name="ho_ten" type="text" id="name" placeholder="Your name" required="">
               </fieldset>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-6">
               <fieldset>
-                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address"
-                  required="" />
+                <input name="email" type="text" id="email" placeholder="Your email" required="">
               </fieldset>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-12">
               <fieldset>
-                <button type="submit" id="form-submit" class="main-dark-button">
-                  <i class="fa fa-paper-plane"></i>
-                </button>
+                <textarea name="noi_dung" rows="6" cols="114" id="message" placeholder="Your message" required=""></textarea>
               </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <button type="submit" name="lienhe" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
             </div>
           </div>
         </form>
