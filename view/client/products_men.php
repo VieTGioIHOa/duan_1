@@ -3,7 +3,6 @@
     $img_path = './uploaded/images/' . $anh;
 ?>
     <div class="item">
-
         <div class="thumb">
             <div class="hover-content">
                 <ul>

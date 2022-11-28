@@ -1,5 +1,5 @@
-body {
-  margin-top: 20px;
+.wrapper {
+  margin: 100px auto 0 auto;
   background: #eee;
 }
 .ui-w-40 {
