@@ -75,7 +75,7 @@
     <div class="left">
       <main class="d-flex flex-nowrap">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-drak" style="width: 300px;">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <a href="index.php?act=home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <span class="fs-4">Trang quản trị Admin</span>
           </a>
           <hr>

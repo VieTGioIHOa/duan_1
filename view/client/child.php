@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="inner-content">
-                    <h2>Check Our Products</h2>
-                    <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                    <h2>Chất lượng - Niềm tin</h2>
+                    <span>Chúng tôi luôn hướng tới những sản phẩm tốt nhất đến với tay của khách hàng!</span>
                 </div>
             </div>
         </div>
@@ -19,54 +19,53 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
-                    <h2>Our Latest Products</h2>
-                    <span>Check out all of our products.</span>
+                    <h2>Sản phẩm cho trẻ</h2>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <?php foreach ($list_san_pham_te as $item) :?>
+            <?php foreach ($list_san_pham_te as $item) : ?>
                 <?php
-                    extract($item);
-                    $img_path = './uploaded/images/' . $anh;
+                extract($item);
+                $img_path = './uploaded/images/' . $anh;
                 ?>
                 <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <div class="col m-2 hidden">
-                                            <form action="index.php?act=addtocart" method="POST">
-                                                <input type="hidden" name="id_san_pham" value="<?= $id_san_pham ?>">
-                                                <input type="hidden" name="ten_san_pham" value="<?= $ten_san_pham ?>">
-                                                <input type="hidden" name="anh" value="<?= $anh ?>">
-                                                <input type="hidden" name="gia" value="<?= $gia ?>">
-                                                <input type="hidden" name="giam_gia" value="<?= $giam_gia ?>">
-                                                <input type="submit" name="add" value="Add to cart" class="btn btn-outline-success btn-sm " class="fa fa-shopping-cart">
-                                            </form>
-                                        </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="index.php?act=chitietsp&id_san_pham=<?php echo $id_san_pham ?>&id_danh_muc=<?= $id_danh_muc ?>">
-                                    <img src="<?= './uploaded/images/' . $anh ?>" alt="" />
-                                </a>
-                            </div>
-                            <div class="down-content">
-                                <h4><?= $ten_san_pham ?></h4>
-                                <del style="color:black"><?= $gia ?>VNĐ</del>
-                                <span style="color:red;font-weight:600;font-size:23px"><?= $giam_gia ?>VNĐ</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
+                    <div class="item">
+                        <div class="thumb">
+                            <div class="hover-content">
+                                <ul>
+                                    <div class="col m-2 hidden">
+                                        <form action="index.php?act=addtocart" method="POST">
+                                            <input type="hidden" name="id_san_pham" value="<?= $id_san_pham ?>">
+                                            <input type="hidden" name="ten_san_pham" value="<?= $ten_san_pham ?>">
+                                            <input type="hidden" name="anh" value="<?= $anh ?>">
+                                            <input type="hidden" name="gia" value="<?= $gia ?>">
+                                            <input type="hidden" name="giam_gia" value="<?= $giam_gia ?>">
+                                            <input type="submit" name="add" value="Add to cart" class="btn btn-outline-success btn-sm " class="fa fa-shopping-cart">
+                                        </form>
+                                    </div>
+                                    </li>
                                 </ul>
                             </div>
+                            <a href="index.php?act=chitietsp&id_san_pham=<?php echo $id_san_pham ?>&id_danh_muc=<?= $id_danh_muc ?>">
+                                <img src="<?= './uploaded/images/' . $anh ?>" alt="" />
+                            </a>
                         </div>
+                        <div class="down-content">
+                            <h4><?= $ten_san_pham ?></h4>
+                            <del style="color:black"><?= $gia ?>VNĐ</del>
+                            <span style="color:red;font-weight:600;font-size:23px"><?= $giam_gia ?>VNĐ</span>
+                            <ul class="stars">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             <?php endforeach; ?>
             <div class="col-lg-12">

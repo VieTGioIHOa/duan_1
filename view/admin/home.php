@@ -30,7 +30,13 @@
                         </li>
                         <li>
                             <div class="gia-tri">
-                                26
+                               <?php foreach ($count_san_pham as $key => $value) {
+                                    extract($value);
+                                    echo '
+                                    '. $dem .' sản phẩm
+                                    ';
+                               }
+                               ?>
                             </div>
                         </li>
                     </ul>

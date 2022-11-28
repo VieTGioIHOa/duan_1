@@ -8,7 +8,7 @@
               <h4>YODY FASHION</h4>
               <span>LOOK GOOD &amp; FEEL GOOD!</span>
               <div class="main-border-button">
-                <a href="#">Purchase Now!</a>
+               
               </div>
             </div>
             <img src="view/assets/images/left-banner-image.jpg" alt="" />
@@ -30,7 +30,7 @@
                       <h4>NỮ GIỚI</h4>
                       <p>Thời trang quý phái, sắc sảo thiết kế dành cho phái đẹp!</p>
                       <div class="main-border-button">
-                        <a href="#">Discover More</a>
+                        <a href="index.php?act=sanpham_nu">Discover More</a>
                       </div>
                     </div>
                   </div>
@@ -50,7 +50,7 @@
                       <h4>NAM GIỚI</h4>
                       <p>Đa dạng phong cảnh điển trai cùng thời trang dành cho phái mạnh.</p>
                       <div class="main-border-button">
-                        <a href="#">Discover More</a>
+                        <a href="index.php?act=sanpham_nam">Discover More</a>
                       </div>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
                       <h4>TRẺ EM</h4>
                       <p>An toàn cho bé - Ba mẹ yên tâm.</p>
                       <div class="main-border-button">
-                        <a href="#">Discover More</a>
+                        <a href="index.php?act=sanpham_te">Discover More</a>
                       </div>
                     </div>
                   </div>

@@ -61,6 +61,12 @@
                 }
                 include './view/client/child.php';
                 break;
+            case 'sanpham_tim_kiem':
+                $kyw = $_POST['kyw'];
+                $items = san_pham_select_keyword($kyw);
+              
+                include './view/client/products_search.php';
+                break;
 
             /*---------------------------TIN TỨC----------------------------- */
             case 'news':
