@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="inner-content">
-                    <h2>Check Our Products</h2>
-                    <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                    <h2>Chất lượng - Niềm tin</h2>
+                    <span>Chúng tôi luôn hướng tới những sản phẩm tốt nhất đến với tay của khách hàng!</span>
                 </div>
             </div>
         </div>
@@ -19,8 +19,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
-                    <h2>Our Latest Products</h2>
-                    <span>Check out all of our products.</span>
+                    <h2>Sản phẩm cho nam giới</h2>
+                   
                 </div>
             </div>
         </div>

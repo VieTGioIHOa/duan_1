@@ -7,3 +7,7 @@ function load_all_thongke(){
     $list_thongke = pdo_query($sql);
     return $list_thongke;
 }
+function count_san_pham(){
+    $sql = "SELECT COUNT(ten_san_pham) as dem from san_pham";
+    return pdo_query($sql);
+}

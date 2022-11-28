@@ -14,6 +14,7 @@ include '../../models/tintuc.php';
 
 /*------------------------THỐNG KÊ---------------------- */
 $list_thongke = load_all_thongke();
+$count_san_pham = count_san_pham();
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];

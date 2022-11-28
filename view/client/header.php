@@ -20,17 +20,22 @@
     <link rel="stylesheet" href="view/assets/css/templatemo-hexashop.css">
 
     <link rel="stylesheet" href="view/assets/css/owl-carousel.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="view/assets/icons/fontawesome-free-6.2.0-web/css/all.min.css">
+
+=======
     
     <link rel="stylesheet" href="view/assets/css/payment.css">
     
+>>>>>>> 764c74462c5af2aa52ef00a258fd9df8a7fedb65
     <!-- LOGIN -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="view/assets/css/auth-form.css" rel="stylesheet" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    
+
 
 </head>
 
@@ -59,7 +64,14 @@
                                     <li><a href="index.php?act=contact">Liên hệ</a></li>
                                 </ul>
                             </li>
-
+                            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 row" role="search" method="POST" action="index.php?act=sanpham_tim_kiem">
+                                <input type="search" name="kyw" class="form-control col" placeholder="Search..." aria-label="Search" >
+                                <div class="col">
+                                    <button type="submit" name="timkiem" class="btn btn-success btn-number btn-custom">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
 
                             <?php
                             if (isset($_SESSION['user'])) {
@@ -68,9 +80,9 @@
                                     <li><a href="index.php?act=cart"><i class="fa fa-shopping-cart"></i></a> </li>
                                 </div>
                                 <div class="dropdown text-end mx-4">
-                                  
+
                                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="<?= './uploaded/user/'.$anh ?>" alt="mdo" width="50" height="50" class="rounded-circle">
+                                        <img src="<?= './uploaded/user/' . $anh ?>" alt="mdo" width="50" height="50" class="rounded-circle">
                                     </a>
                                     <ul class="dropdown-menu text-small" style="max-width:500px;max-height:350px;font-size:11px">
                                         <li><a class="dropdown-item">Xin chào <b><?= $ho_ten ?></b></a></li>
@@ -91,12 +103,12 @@
                             <?php
                             } else {
                             ?>
-                             <li><a href="index.php?act=login"><button class="btn">Login</button></a></li>
-                            <li><a href="index.php?act=register"><button class="btn">Register</button></a></li>
+                                <li><a href="index.php?act=login"><button class="btn">Login</button></a></li>
+                                <li><a href="index.php?act=register"><button class="btn">Register</button></a></li>
                             <?php } ?>
 
-                           
-                           
+
+
                         </ul>
                         <a class="menu-trigger">
                             <span>Menu</span>
