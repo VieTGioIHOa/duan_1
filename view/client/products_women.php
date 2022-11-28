@@ -6,19 +6,11 @@
 
                 <div class="thumb">
                   <div class="hover-content">
-                    <ul>
-                      <div class="col m-2 hidden">
-                        <form action="index.php?act=addtocart" method="POST">
-                          <input type="hidden" name="id_san_pham" value="<?= $id_san_pham ?>">
-                          <input type="hidden" name="ten_san_pham" value="<?= $ten_san_pham ?>">
-                          <input type="hidden" name="anh" value="<?= $anh ?>">
-                          <input type="hidden" name="gia" value="<?= $gia ?>">
-                          <input type="hidden" name="giam_gia" value="<?= $giam_gia ?>">
-                          <input type="submit" name="add" value="Add to cart" class="btn btn-outline-success btn-sm " class="fa fa-shopping-cart">
-                        </form>
-                      </div>
-                      </li>
-                    </ul>
+                  <ul>
+                    <li><a href="index.php?act=chitietsp&id_san_pham=<?php echo $id_san_pham ?>&id_danh_muc=<?= $id_danh_muc ?>"><i class="fa fa-eye"></i></a></li>
+                    <li><a href="index.php?act=chitietsp&id_san_pham=<?php echo $id_san_pham ?>&id_danh_muc=<?= $id_danh_muc ?>"><i class="fa fa-star"></i></a></li>
+                    <li><a href="index.php?act=chitietsp&id_san_pham=<?php echo $id_san_pham ?>&id_danh_muc=<?= $id_danh_muc ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                  </ul>
                   </div>
                   <a href="index.php?act=chitietsp&id_san_pham=<?php echo $id_san_pham ?>&id_danh_muc=<?= $id_danh_muc ?>">
                     <img src="<?= './uploaded/images/' . $anh ?>" alt="" />

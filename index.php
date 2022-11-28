@@ -220,7 +220,6 @@
                 break;
              /*---------------------------Giỏ hàng----------------------------- */
             case 'add_to_cart':
-                session_start();
                 if(!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
                 if(isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
                     $ten = $_POST['ten'];

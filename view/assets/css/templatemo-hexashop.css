@@ -1908,17 +1908,22 @@ Single Product Page
 }
 
 .main-border-button a,
-#product input[type="submit"] {
+#product .btn-add-to-cart {
   text-align: left;
-  border-color: #2a2a2a;
+  border: 1px solid #2a2a2a;
   color: #2a2a2a;
   background-color: transparent;
   padding: 8px 12px;
   margin-top: 16px;
+  box-shadow: none;
+}
+
+.btn-add-to-cart {
+  border-radius: none;
 }
 
 .main-border-button a:hover,
-#product input[type="submit"]:hover {
+#product .btn-add-to-cart:hover {
   color: #fff;
   background-color: #2a2a2a;
 }

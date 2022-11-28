@@ -91,7 +91,7 @@
                         </div>
                       <?php endforeach; ?>
                     </div>
-                    <input type="submit"  name="add_to_cart"class="" value="Add To Cart">
+                    <input type="submit" name="add_to_cart"class="btn-add-to-cart" value="Add To Cart">
                   </form>
                 </div>
               </div>
