@@ -61,6 +61,15 @@
                 }
                 include './view/client/child.php';
                 break;
+            case 'chitietsp':
+                $id_san_pham = $_GET['id_san_pham'];
+                $id_danh_muc = $_GET['id_danh_muc'];
+                $san_pham = san_pham_select_by_id($id_san_pham);
+                $anh_san_pham = san_pham_img_select_by_id($id_san_pham);
+                $size_san_pham =san_pham_select_size($id_san_pham);
+                $mau_san_pham =san_pham_select_mau($id_san_pham);
+
+                include './view/client/single-product.php';
 
             /*---------------------------TIN TỨC----------------------------- */
             case 'news':
@@ -210,8 +219,25 @@
                 ob_end_flush();
                 break;
              /*---------------------------Giỏ hàng----------------------------- */
-            
-            
+            case 'add_to_cart':
+                session_start();
+                if(!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
+                if(isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
+                    $ten = $_POST['ten'];
+                    $gia = $_POST['gia'];
+                    $anh = $_POST['anh'];
+                    $size = $_POST['size'];
+                    $mau = $_POST['mau'];
+
+                    $san_pham =[$ten, $gia, $anh, $size, $mau];
+                    $_SESSION['cart'][] = $san_pham;
+                }
+                break;
+            case 'cart':
+                include './view/client/cart.php';
+                break;
+            case 'checkout':
+                include './view/client/payment.php';
         }
     }
     else{

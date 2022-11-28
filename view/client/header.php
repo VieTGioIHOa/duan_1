@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="view/assets/css/templatemo-hexashop.css">
 
     <link rel="stylesheet" href="view/assets/css/owl-carousel.css">
-
+    
+    <link rel="stylesheet" href="view/assets/css/payment.css">
+    
     <!-- LOGIN -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="view/assets/css/auth-form.css" rel="stylesheet" />
@@ -63,7 +65,7 @@
                             if (isset($_SESSION['user'])) {
                                 extract($_SESSION['user']);
                             ?><div class="carts">
-                                    <li><a href="view/client/cart.php"><i class="fa fa-shopping-cart"></i></a> </li>
+                                    <li><a href="index.php?act=cart"><i class="fa fa-shopping-cart"></i></a> </li>
                                 </div>
                                 <div class="dropdown text-end mx-4">
                                   
