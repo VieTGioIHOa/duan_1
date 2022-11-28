@@ -1802,21 +1802,29 @@ Single Product Page
   background-color: #fff;
 }
 
+#product .right-content span {
+  font-size: 14px;
+  color: #aaaaaa;
+  font-weight: 500;
+  display: block;
+  margin-top: 25px;
+}
+
 #product .right-content h4 {
   font-size: 22px;
   color: #2a2a2a;
   font-weight: 700;
   margin-bottom: 0px;
 }
+.price {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 20px;
+}
 
-#product .right-content span.price {
-  font-size: 18px;
-  color: #a1a1a1;
-  font-weight: 500;
-  display: block;
-  margin-top: 5px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 20px;
+.price del {
+  margin-right: 20px;
 }
 
 #product .right-content ul.stars {
@@ -1828,14 +1836,6 @@ Single Product Page
 #product .right-content ul.stars li {
   display: inline;
   font-size: 13px;
-}
-
-#product .right-content span {
-  font-size: 14px;
-  color: #aaaaaa;
-  font-weight: 500;
-  display: block;
-  margin-top: 25px;
 }
 
 #product .right-content .quote {
@@ -1903,8 +1903,9 @@ Single Product Page
 
 .order-content input[type="number"] {
   outline: none;
-  width: 50px;
-  border-color: #aaaaaa;
+  width: 80px;
+  border-color: #e7dcdc;
+  border-radius: 20px;
 }
 
 .main-border-button a,

@@ -67,7 +67,7 @@
                             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 row" role="search" method="POST" action="index.php?act=sanpham_tim_kiem">
                                 <input type="search" name="kyw" class="form-control col" placeholder="Search..." aria-label="Search" >
                                 <div class="col">
-                                    <button type="submit" name="timkiem" class="btn btn-success btn-number btn-custom">
+                                    <button type="submit" name="timkiem" class="btn btn-secondary btn-number btn-custom">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
@@ -82,7 +82,7 @@
                                 <div class="dropdown text-end mx-4">
 
                                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="<?= './uploaded/user/' . $anh ?>" alt="mdo" width="50" height="50" class="rounded-circle">
+                                        <img src="<?= './uploaded/user/' . $anh ?>" alt="mdo" width="38" height="38" class="rounded-circle">
                                     </a>
                                     <ul class="dropdown-menu text-small" style="max-width:500px;max-height:350px;font-size:11px">
                                         <li><a class="dropdown-item">Xin chào <b><?= $ho_ten ?></b></a></li>

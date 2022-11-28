@@ -46,7 +46,10 @@
           <div class="col-lg-4">
             <div class="right-content">
               <h4><?= $ten_san_pham?></h4>
-              <span class="price"><?= $gia?>đ</span>
+              <div class="price">
+                <del class="text-black"><?= $gia?>đ</del>
+                <div class="text-danger"><?= $giam_gia?>đ</div>
+              </div>
               <!-- <ul class="stars">
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>

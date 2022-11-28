@@ -66,7 +66,15 @@
                 $items = san_pham_select_keyword($kyw);
                 include './view/client/products_search.php';
                 break;
+            case 'chitietsp':
+                $id_san_pham = $_GET['id_san_pham'];
+                $id_danh_muc = $_GET['id_danh_muc'];
+                $san_pham = san_pham_select_by_id($id_san_pham);
+                $anh_san_pham = san_pham_img_select_by_id($id_san_pham);
+                $size_san_pham =san_pham_select_size($id_san_pham);
+                $mau_san_pham =san_pham_select_mau($id_san_pham);
 
+                include './view/client/single-product.php';
             /*---------------------------TIN TỨC----------------------------- */
             case 'news':
                 
