@@ -17,7 +17,7 @@
         </div>
         <div class="down-content">
             <h4><?= $ten_san_pham ?></h4>
-            <del style="color:black"><?= $gia ?>VNĐ</del>
+            <del style="color:black"><?= $gia ?>.000 VNĐ</del>
             <span style="color:red;font-weight:600;font-size:23px"><?= $giam_gia ?>VNĐ</span>
             <ul class="stars">
                 <li><i class="fa fa-star"></i></li>

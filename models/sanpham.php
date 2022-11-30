@@ -77,9 +77,9 @@ function san_pham_select_all(){
     $sql = "SELECT * FROM san_pham ORDER BY id_san_pham desc";
     return pdo_query($sql);
 }
-function san_pham_cung_loai($ma_loai){
+function san_pham_cung_loai($id_danh_muc){
     $sql = "SELECT * FROM san_pham WHERE id_danh_muc = ? ORDER BY RAND() LIMIT 4";
-    return pdo_query($sql,$ma_loai);
+    return pdo_query($sql,$id_danh_muc);
 }
 function san_pham_select_by_id($id_san_pham){
     $sql = "SELECT * FROM san_pham WHERE id_san_pham=?";
