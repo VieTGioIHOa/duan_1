@@ -89,6 +89,14 @@
               </a>
             </li>
             <li>
+              <a href="index.php?act=list_cart" class="nav-link link-dark">
+                <svg class="bi pe-none me-2" width="16" height="16">
+                  <use xlink:href="#collection" />
+                </svg>
+                Đơn hàng
+              </a>
+            </li>
+            <li>
               <a href="index.php?act=adddm" class="nav-link link-dark">
                 <svg class="bi pe-none me-2" width="16" height="16">
                   <use xlink:href="#speedometer2" />

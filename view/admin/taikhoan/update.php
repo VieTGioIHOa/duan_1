@@ -37,11 +37,11 @@
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label class="form-label">Mật khẩu</label>
-                                <input type="password" name="mat_khau" class="form-control" required value="<?= $mat_khau ?>">
+                                <input type="text" name="mat_khau" class="form-control" required value="<?= $mat_khau ?>">
                             </div>
                             <div class="form-group col-sm-6">
                                 <label class="form-label">Xác nhận mật khẩu</label>
-                                <input type="password" name="mat_khau2" class="form-control" required value="<?= $mat_khau ?>">
+                                <input type="text" name="mat_khau2" class="form-control" required value="<?= $mat_khau ?>">
                             </div>
                         </div>
                         
@@ -89,7 +89,7 @@
 
                             <input type="reset" value="Nhập lại" class="btn btn-danger mr-3">
                             <input type="submit" name="capnhat" value="Cập nhật" class="btn btn-primary mr-3">
-                            <a href="index.php?act=listkh"><input type="button" class="btn btn-success" value="Danh sách"></a>
+                            <a href="index.php?act=listtk"><input type="button" class="btn btn-success" value="Danh sách"></a>
                         </div>
 
                     </form>

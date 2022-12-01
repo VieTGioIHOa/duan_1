@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="view/assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="view/assets/icons/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="view/assets/icons/fontawesome-free-6.2.0-web/css/all.css">
     <link rel="stylesheet" href="view/assets/css/style.css">
 
 

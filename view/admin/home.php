@@ -1,7 +1,7 @@
 <!-- <h1 class="alert alert-danger">Chào mừng bạn đến với trang Admin</h1> -->
 <div class="right">
-    <div class="tong">
-        <div class="tren">
+    <div class="tongs">
+        <!-- <div class="tren">
             <div class="one">
                 <h4>Doanh thu</h4>
                 <div class="detail">
@@ -59,7 +59,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="row m-1 pb-5">
             <table class="table table-responsive-md" id="customers">

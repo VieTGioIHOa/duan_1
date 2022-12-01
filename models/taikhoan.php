@@ -28,7 +28,7 @@ function tai_khoan_select_all()
 }
 function tai_khoan_select_by_id($id_tai_khoan)
 {
-    $sql = "SELECT * FROM tai_khoan WHERE ten_dang_nhap=?";
+    $sql = "SELECT * FROM tai_khoan WHERE id_tai_khoan=?";
     return pdo_query_one($sql, $id_tai_khoan);
 }
 function tai_khoan_exist($ten_dang_nhap)

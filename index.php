@@ -312,7 +312,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                    cart_insert($cart[1],$cart[3],$cart[4],$cart[5],$cart[6],$ttien,$id_bill,$_SESSION['user']['id_tai_khoan'],$cart[0]);
                 }
                 //xóa session cart
-                $_SESSION['cart'] = [];
+                $_SESSION['mycart'] = [];
             }
             $list_bill = loadone_bill($id_bill);
             include './view/cart/bill_comfirm.php';

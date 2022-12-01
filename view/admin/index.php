@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'header.php';
 include '../../models/danhmuc.php';
 include '../../models/gioitinh.php';
@@ -9,6 +10,7 @@ include '../../models/gioithieu.php';
 include '../../models/mausac.php';
 include '../../models/thongke.php';
 include '../../models/tintuc.php';
+include '../../models/cart.php';
 // include '../../models/binhluan.php';
 // include '../../models/cart.php';
 
@@ -506,8 +508,37 @@ if (isset($_GET['act'])) {
             $list = tin_tuc_select_all();
             include 'tintuc/list.php';
             break;
+            
+        /*------------------------ GIỎ HÀNG ---------------------- */
+        case 'list_cart':
+            $list_bill = load_all_bills();
+            include 'cart/list.php';
+            break;
+        // case 'xoa_cart':
+        //     if (isset($_GET['id_bill'])) {
+        //         $id_bill = $_GET['id_bill'];
+        //         $id_cart = select_id_cart($id_bill);
+        //         $xoa_cart = cart_delete($id_cart);
+        //         $xoa_bill = bill_delete($id_bill);
+        //         $thongbao = "Xóa thành công";
+        //     }
+        //     $list_bill = load_all_bills();
+        //     include 'cart/list.php';
+        //     break;
+        case 'sua_bill':
+            $bill_by_id = bill_select_by_id($_GET['id_bill']);
+            $cart_by_id = cart_select_by_id($_GET['id_bill']);
+            include 'cart/update.php';
+            break;
+        case 'update_bill':
+            if(isset($_POST['update'])){
+                $trang_thai = $_POST['ttdh'];
+                bill_update($trang_thai,$_POST['id_bill']);
+            }
+            $list_bill = load_all_bills();
+            include 'cart/list.php';
+            break;
         case 'home':
-        
             include 'home.php';
             break;
     }

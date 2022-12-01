@@ -50,10 +50,12 @@
 
                         <br>Distributed By: <a href="#" target="_blank" title="free & premium responsive templates">NHÓM 5</a></p>
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                             <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-square-behance"></i></a></li>
+                          
+                            
                         </ul>
                 </div>
             </div>
