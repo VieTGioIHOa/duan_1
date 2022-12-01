@@ -76,8 +76,8 @@
 
                 include './view/client/single-product.php';
             /*---------------------------TIN TỨC----------------------------- */
-            case 'news':
-                
+            case 'tin-tuc':
+                $list_tin_tuc = tin_tuc_select_all();
                 include './view/client/news.php';
                 break;
 
