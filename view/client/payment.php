@@ -1,4 +1,3 @@
-
 <main class="page payment-page">
   <section class="payment-form dark">
     <div class="container">

@@ -1825,6 +1825,12 @@ Single Product Page
 
 .price del {
   margin-right: 20px;
+  font-weight:500;
+  font-size: 20px;
+}
+.text-danger{
+  font-weight: 650;
+  font-size: 25px;
 }
 
 #product .right-content ul.stars {
@@ -1875,6 +1881,7 @@ Single Product Page
 
 #product .right-content .name {
   margin-top: 4px;
+  color: #191a20;
 }
 
 .order-content {
@@ -1894,16 +1901,16 @@ Single Product Page
 
 .order-content .left-content h6 {
   padding-top: 7px;
-  font-size: 20px;
+  font-size: 23;
   font-weight: 700;
-  color: #aaa;
+  color: rgb(67, 67, 67);
   position: relative;
   z-index: 11;
 }
 
 .order-content input[type="number"] {
-  outline: none;
-  width: 80px;
+  /* outline: none; */
+  width: 120px;
   border-color: #e7dcdc;
   border-radius: 20px;
 }
