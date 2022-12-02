@@ -5,156 +5,90 @@
             <h2>Shopping Cart</h2>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered m-0">
-                    <thead>
-                        <tr>
-                            <!-- Set columns width -->
-                            <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
-                            <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
-                            <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
-                            <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
-                            <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $tong = 0;
-                        $i = 0;
-                        foreach ($_SESSION['mycart'] as $cart) : ?>
-                            <tr>
-                                <?php
-                                $ttien = $cart[3] * $cart[4];
-                                $tong += $ttien;
-                                ?>
-                                <td class="p-4">
-                                    <div class="media align-items-center">
-                                        <img src="<?= './uploaded/images/' . $cart[2] ?>" style="width: 70px; height: 70px;" class="d-block ui-bordered mr-4" alt="">
-                                        <div class="media-body">
-                                            <b href="#" class="d-block text-dark"><?= $cart[1] ?></b>
-                                            <small>
-                                                <span class="text-muted">Color: <?= $cart[6] ?></span>
-                                                <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
-                                                <span class="text-muted">Size: <?= $cart[5] ?></span> ;
-                                                <!-- <span class="text-muted">Ships from: </span> Hà Nội -->
-                                            </small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right font-weight-semibold align-middle p-4"><?= $cart[3] ?>VNĐ</td>
-                                <td class="text-right font-weight-semibold align-middle p-4"><input type="number" min="1" max="10" class="form-control text-center" value="<?= $cart[4] ?>"></td>
-                                <td class="text-right font-weight-semibold align-middle p-4"><?=$ttien ?>VNĐ</td>
-                                <!-- <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td> -->
-
-                                <td class="pt-1 pt-4">
-                                    <a onclick="return confirm('Bạn chắc chắn muốn xóa?');" href="index.php?act=delcart&idcart=<?= $i ?>" class="btn btn-outline-danger"> <i class="fas fa-trash-alt "></i></a>
-                                </td>
-                                <?php $i = $i + 1; ?>
-                            </tr>
-                        <?php endforeach ?>
-                    <tfoot id="tongdonhang">
-                        <tr class="text-center">
-                            <th colspan="3">Tổng thành tiền: </th>
-                            <td class="  text-danger font-weight-bold"><?= $tong ?>VNĐ</td>
-                            <td></td>
-                        </tr>
-                        <tr class="text-right">
-                            <th colspan="5">
-                                
-                                <a onclick="return confirm('Bạn chắc chắn muốn xóa tất cả k??');" href="index.php?act=delall" class="btn btn-danger">Xóa
-                                    tất
-                                    cả</a>
-                            </th>
-                        </tr>
-                    </tfoot>
-                    <!-- <tr>
-                <td class="p-4">
-                  <div class="media align-items-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" style="width: 40px; height: 40px;" class="d-block ui-bordered mr-4" alt="">
-                    <div class="media-body">
-                      <a href="#" class="d-block text-dark">Product 1</a>
-                      <small>
-                        <span class="text-muted">Color:</span>
-                        <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
-                        <span class="text-muted">Size: </span> EU 37 &nbsp;
-                        <span class="text-muted">Ships from: </span> China
-                      </small>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
-                <td class="align-middle p-4"><input type="text" class="form-control text-center" value="2"></td>
-                <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
-                <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-              </tr> -->
-
-                    <!-- <tr>
-                <td class="p-4">
-                  <div class="media align-items-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" style="width: 40px; height: 40px;" class="d-block ui-bordered mr-4" alt="">
-                    <div class="media-body">
-                      <a href="#" class="d-block text-dark">Product 2</a>
-                      <small>
-                        <span class="text-muted">Color:</span>
-                        <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#000;"></span> &nbsp;
-                        <span class="text-muted">Storage: </span> 32GB &nbsp;
-                        <span class="text-muted">Warranty: </span> Standard - 1 year &nbsp;
-                        <span class="text-muted">Ships from: </span> China
-                      </small>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-                <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                <td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-                <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-              </tr>
-    
-              <tr>
-                <td class="p-4">
-                  <div class="media align-items-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" style="width: 40px; height: 40px;" class="d-block ui-bordered mr-4" alt="">
-                    <div class="media-body">
-                      <a href="#" class="d-block text-dark">Product 3</a>
-                      <small>
-                        <span class="text-muted">Ships from: </span> Germany
-                      </small>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-                <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-                <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-              </tr> -->
-
-                    </tbody>
-                </table>
-            </div>
-            <!-- / Shopping cart table -->
-<!-- 
-            <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
-                <div class="mt-4">
-                    <label class="text-muted font-weight-normal">Promocode</label>
-                    <input type="text" placeholder="ABC" class="form-control">
-                </div>
-                <div class="d-flex">
-                    <div class="text-right mt-4 mr-5">
-                        <label class="text-muted font-weight-normal m-0">Discount</label>
-                        <div class="text-large"><strong>$20</strong></div>
-                    </div>
-                    <div class="text-right mt-4">
-                        <label class="text-muted font-weight-normal m-0">Total price</label>
-                        <div class="text-large"><strong>$1164.65</strong></div>
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="float-right">
-                <a href="index.php"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button></a>
-                <a href="index.php?act=bill"><button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button></a>
-            </div>
+           <!-- <form action="index.php?act=bill" method="POST"> -->
+              <div class="table-responsive">
+                  <table class="table table-bordered m-0">
+                      <thead>
+                          <tr>
+                              <!-- Set columns width -->
+                              <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+                              <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+                              <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+                              <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
+                              <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                          $tong = 0;
+                          $i = 0;
+                          foreach ($_SESSION['mycart'] as $cart) : ?>
+                              <tr>
+                                  <!-- <?php
+                                  $ttien = number_format($cart[3]) * number_format($cart[4]);
+                                  $tong += $ttien;
+                                  ?> -->
+                                  <td class="p-4">
+                                      <div class="media align-items-center">
+                                          <img src="<?= './uploaded/images/' . $cart[2] ?>" style="width: 70px; height: 70px;" class="d-block ui-bordered mr-4" alt="">
+                                          <div class="media-body">
+                                              <b href="#" class="d-block text-dark"><?= $cart[1] ?></b>
+                                              <small>
+                                                  <span class="text-muted">Color: <?= $cart[6] ?></span>
+                                                  <!-- <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp; -->
+                                                  <span class="text-muted">Size: <?= $cart[5] ?></span> ;
+                                                  <!-- <span class="text-muted">Ships from: </span> Hà Nội -->
+                                              </small>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td class="text-right font-weight-semibold align-middle p-4"><?= $cart[3] ?>VNĐ <input type="hidden" class="iprice" value="<?= $cart[3] ?>"></td>
+                                  <td class="text-right font-weight-semibold align-middle p-4">
+                                    <form action="index.php?act=quantity_mod" method="POST">
+                                      <input type="hidden" value="<?= $cart[1]?>" name="iname" >
+                                      <div class="number-input">
+                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                                        <input onchange="this.form.submit()" name='mod_quantity' class="iquantity" type="number" min="1" max="10" value="<?= $cart[4] ?>">
+                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                      </div>
+                                      <!-- <input onchange="this.form.submit()" name='mod_quantity' class="iquantity" type="number" min="1" max="10" class="form-control text-center" value="<?= $cart[4] ?>"> -->
+                                    </form>
+                                  </td>
+                                  <td class="text-right font-weight-semibold align-middle p-4">
+                                    <div class="wrap-itotal"><span class="itotal"></span><span>VNĐ</span></div>
+                                  </td>
+                                  <!-- <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td> -->
+                                  <td class="pt-1 pt-4">
+                                      <a onclick="return confirm('Bạn chắc chắn muốn xóa?');" href="index.php?act=delcart&idcart=<?= $i ?>" class="btn btn-outline-danger"> <i class="fas fa-trash-alt "></i></a>
+                                  </td>
+                                  <?php $i = $i + 1; ?>
+                              </tr>
+                          <?php endforeach ?>
+                      <tfoot id="tongdonhang">
+                          <tr class="text-center">
+                              <th colspan="3">Tổng thành tiền: </th>
+                              <td class="">
+                                <span class="text-danger font-weight-bold gtotal"></span>
+                                <span class="">VNĐ</span>
+                              </td>
+                              <td></td>
+                          </tr>
+                          <tr class="text-right">
+                              <th colspan="5">
+                                  <a onclick="return confirm('Bạn chắc chắn muốn xóa tất cả k??');" href="index.php?act=delall" class="btn btn-danger">Xóa tất cả</a>
+                              </th>
+                          </tr>
+                      </tfoot>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="float-right wrap-checkout">
+                  <a href="index.php"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button></a>
+                  <a href="index.php?act=bill"><button type="submit" class="btn btn-lg btn-primary mt-2">Checkout</button></a>
+              </div>
+           <!-- </form> -->
         </div>
     </div>
 </div>
 </div>
+<script src="./view/assets/js/app.js"></script>
