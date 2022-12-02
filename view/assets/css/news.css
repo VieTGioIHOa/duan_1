@@ -1,0 +1,35 @@
+.news-item a {
+  display: block;
+}
+.news-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-title {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.news-title:hover {
+  color: red;
+}
+
+.news-intro {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+/* SINGLE NEWS */
+.single-news-wrapper {
+  margin-top: 100px;
+}
+
+.single-news-wrapper img {
+  width: 100%;
+}

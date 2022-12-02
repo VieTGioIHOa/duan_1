@@ -94,11 +94,17 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             include './view/client/binhluan.php';
             break;
             /*---------------------------TIN TỨC----------------------------- */
-        case 'news':
-
-            include './view/client/news.php';
+        case 'tin_tuc':
+            $list_tin_tuc = tin_tuc_select_all();
+            include './view/client/news-list.php';
             break;
-
+        case 'chitiet_tintuc':
+            $id_tin_tuc = $_GET['id'];
+            $tin_tuc = tin_tuc_select_by_id($id_tin_tuc);
+            $images = tin_tuc_img_select_by_id($id_tin_tuc);
+            
+            include './view/client/single-news.php';
+            break;
             /*---------------------------Giới thiệu----------------------------- */
         case 'about':
             $gioi_thieu = gioi_thieu_select_all();

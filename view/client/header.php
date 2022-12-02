@@ -22,11 +22,18 @@
     <link rel="stylesheet" href="view/assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="view/assets/icons/fontawesome-free-6.2.0-web/css/all.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="view/assets/icons/fontawesome-free-6.2.0-web/css/all.css">
     <link rel="stylesheet" href="view/assets/css/style.css">
 
 
+=======
+>>>>>>> 8828c01b6ac66bc295ce47bdba9a3a1c9cf51120
     
+    <link rel="stylesheet" href="view/assets/css/style.css">
+    
+    <link rel="stylesheet" href="view/assets/css/news.css">
+
     <link rel="stylesheet" href="view/assets/css/payment.css">
     
 
