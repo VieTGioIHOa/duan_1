@@ -3,17 +3,14 @@
         extract($images); 
     ?>
     <div class="single-news-wrapper">
-        <h1><?= $tieu_de ?></h1>
-        <h4> <?= $intro ?></h4>
+        <div class="title"><?= $tieu_de ?></div>
+        <h4 class="intro"> <?= $intro ?></h4>
         <div>
-            <img src="./uploaded/tintuc/<?= $anh_chinh ?>" alt="">
-        </div>
-        <div>
-            <p><?=$noi_dung1 ?></p>
+            <div class="text"><?=$noi_dung1 ?></div>
             <img src="./uploaded/tintuc/<?= $images[0]['anh'] ?>" alt="">
         </div>
         <div>
-            <p><?=$noi_dung2 ?></p>
+        <div class="text"><?=$noi_dung2 ?></div>
             <img src="./uploaded/tintuc/<?= $images[1]['anh'] ?>" alt="">
         </div>
     </div>

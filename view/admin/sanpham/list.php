@@ -1,6 +1,6 @@
 <div class="right">
     <div class="page-title">
-        <h4 class="mt-5 font-weight-bold text-center">Danh sách hàng hóa</h4>
+        <h4 class="mt-1 font-weight-bold text-center">Danh sách hàng hóa</h4>
         <?php
         if (isset($thongbao)) { ?>
             <p class="alert alert-success"><?= $thongbao ?></p>
@@ -44,9 +44,9 @@
                             $mau = san_pham_select_mau($id_san_pham);
                             $size = san_pham_select_size($id_san_pham);
                         ?>
-                        
+
                             <tr>
-                        
+
                                 <td><?= $ten_san_pham ?></td>
                                 <td><?= $img ?></td>
                                 <td><?= $gia ?>VNĐ</td>
@@ -55,15 +55,15 @@
                                 <td><?= ($dac_biet == 1) ? "Đặc biệt" : "Không"; ?></td>
                                 <td><?= $ten_danh_muc ?></td>
                                 <td><?php foreach ($size as $key => $value) { ?>
-                                    <?= $value['ten_kich_co'].', '  ?>
+                                        <?= $value['ten_kich_co'] . ', '  ?>
                                     <?php } ?>
                                 </td>
                                 <td><?php foreach ($mau as $key => $value) { ?>
-                                    <?= $value['ten_mau_sac'].', '  ?>
+                                        <?= $value['ten_mau_sac'] . ', '  ?>
                                     <?php } ?>
                                 </td>
 
-                               
+
                                 <td class="text-end">
                                     <a href="<?= $suahh ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i>Sửa</a>
                                     <a href="<?= $xoahh ?>" class="btn btn-outline-danger btn-rounded" onclick="return confirm('Bạn thật sự muốn xóa?');"><i class="fas fa-trash"></i>Xóa</a>
@@ -77,6 +77,15 @@
 
                 </table>
             </form>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

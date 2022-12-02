@@ -74,7 +74,7 @@ function san_pham_mau_delete($id_san_pham){
 }
 
 function san_pham_select_all(){
-    $sql = "SELECT * FROM san_pham ORDER BY id_san_pham desc";
+    $sql = "SELECT * FROM san_pham ORDER BY id_san_pham desc LIMIT";
     return pdo_query($sql);
 }
 function san_pham_cung_loai($id_danh_muc){

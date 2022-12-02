@@ -217,6 +217,7 @@ if (isset($_GET['act'])) {
             $listhh = san_pham_select_alls();
             include 'sanpham/list.php';
             break;
+        
 
             /*------------------------KHÁCH HÀNG---------------------- */
         case 'addtk':

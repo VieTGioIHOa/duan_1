@@ -4,11 +4,7 @@ const itotal = document.querySelectorAll('.itotal')
 const gtotal = document.querySelector('.gtotal')
 let gt = 0
 
-const hidITotal = document.querySelector('.hid-itotal');
-const hidIQuantity = document.querySelector('.hid-iquantity');
 
-
-console.log(hidITotal)
 
 function subTotal() {
     gt = 0
