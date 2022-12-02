@@ -73,7 +73,12 @@
                 </div>
                 <div class="right-content">
                   <form action="index.php?act=add_to_cart" method="POST">
-                    <input type="number" min="1" max="20" name="so_luong" class="input qty">
+                    <div class="number-input">
+                      <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button> -->
+                      <input name='so_luong' class="" type="number" min="1" max="10">
+                      <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> -->
+                    </div>
+                    <!-- <input type="number" min="1" max="20" name="so_luong" class="input qty"> -->
                     <input type="hidden" name="id_san_pham" value="<?= $id_san_pham ?>">
                     <input type="hidden" name="ten" value="<?= $ten_san_pham ?>">
                     <input type="hidden" name="giam_gia" value="<?= $giam_gia ?>">

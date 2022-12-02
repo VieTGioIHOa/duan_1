@@ -1825,10 +1825,10 @@ Single Product Page
 
 .price del {
   margin-right: 20px;
-  font-weight:500;
+  font-weight: 500;
   font-size: 20px;
 }
-.text-danger{
+.text-danger {
   font-weight: 650;
   font-size: 25px;
 }
@@ -1908,12 +1908,11 @@ Single Product Page
   z-index: 11;
 }
 
-.order-content input[type="number"] {
-  /* outline: none; */
+/* .order-content input[type="number"] {
   width: 120px;
   border-color: #e7dcdc;
   border-radius: 20px;
-}
+} */
 
 .main-border-button a,
 #product .btn-add-to-cart {

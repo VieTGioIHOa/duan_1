@@ -293,7 +293,18 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             }
             header('location: index.php?act=viewcart');
             break;
+        case 'quantity_mod':
+            if(isset($_POST['mod_quantity'])) {
+                foreach($_SESSION['mycart'] as $key => $cart) {
+                    if($cart[1] == $_POST['iname']) {
+                        $_SESSION['mycart'][$key][4] = $_POST['mod_quantity'];
+                    }
+                }
+            }
+            header('location: index.php?act=viewcart');
+            break;
         case 'bill':
+            var_dump($_POST['iquantity']);
             $thongbao = 'Bạn cần đăng nhập để tới phần đặt hàng';
             include './view/cart/bill.php';
             break;
