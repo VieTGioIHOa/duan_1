@@ -1,11 +1,11 @@
 <div class="right">
-    <div class="page-title">
-        <h4 class="mt-5 font-weight-bold text-center">Danh sách loại hàng</h4>
+    <div class="card">
+        <div class="card-header text-center bg-dark text-white text-uppercase py-4">danh sách loại hàng</div>
     </div>
     <div class="box box-primary">
         <div class="box-body">
 
-            <a href="index.php?act=adddm"><input type="submit" class="btn btn-success mb-1" value="Nhập thêm"></a>
+            <a href="index.php?act=adddm"><input type="submit" class="btn btn-success  my-3 mx-2" value="Nhập thêm"></a>
             <?php
             if (isset($thongbao)) { ?>
                 <p class="alert alert-danger"><?= $thongbao ?></p>

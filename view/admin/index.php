@@ -11,7 +11,7 @@ include '../../models/mausac.php';
 include '../../models/thongke.php';
 include '../../models/tintuc.php';
 include '../../models/cart.php';
-// include '../../models/binhluan.php';
+include '../../models/binhluan.php';
 // include '../../models/cart.php';
 
 /*------------------------THỐNG KÊ---------------------- */
@@ -121,8 +121,27 @@ if (isset($_GET['act'])) {
             include 'sanpham/add.php';
             break;
         case 'listhh':
-            $listhh = san_pham_select_alls();
+            if(isset($_GET['trang'])){
+                $page = $_GET['trang'];
+            } else{
+                $page = 1;
+            }
+            if($page == '' || $page == 1){
+                $begin = 0;
+            }else{
+                $begin = ($page*4)-4;
+            }
+            $listhh = san_pham_select_allss($begin);
+            $count = san_pham_count();
+            $trang = ceil($count["dem"]/4);  
             include 'sanpham/list.php';
+            break;
+        case 'list_search':
+            $kyw = $_POST['kyw'];
+            $items = san_pham_select_keyword($kyw);
+            $count = san_pham_count();
+            $trang = ceil($count["dem"]/4); 
+            include 'sanpham/list_search.php';
             break;
         case 'xoasp':
             if (isset($_GET['id_san_pham'])) {
@@ -541,6 +560,20 @@ if (isset($_GET['act'])) {
             break;
         case 'home':
             include 'home.php';
+            break;
+        /*------------------------ BÌNH LUẬN ---------------------- */
+        case 'listbl':
+            $list_bl = binh_luan_select_all_admin();
+            include 'binhluan/list.php';
+            break;
+        case 'xoabl':
+            if(isset($_GET['id_binh_luan'])&& ($_GET['id_binh_luan']>0)){
+                $id_binh_luan = $_GET['id_binh_luan'];
+                $xoa = binh_luan_delete($id_binh_luan);
+                $thongbao ="Xóa thành công";
+            } 
+            $list_bl = binh_luan_select_all_admin();
+            include 'binhluan/list.php';
             break;
     }
 } else {

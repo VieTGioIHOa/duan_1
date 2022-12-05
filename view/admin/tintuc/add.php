@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header text-center bg-dark text-white text-uppercase">Thêm mới tin tức</div>
+                <div class="card-header text-center bg-dark text-white text-uppercase py-4">Thêm mới tin tức</div>
                 <?php
                 if (isset($thongbao)) { ?>
                     <p class="alert alert-danger"><?= $thongbao ?></p>

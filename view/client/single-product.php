@@ -94,7 +94,7 @@
                     <div class="color">
                       <?php foreach ($mau_san_pham as $item) : ?>
                         <div>
-                          <span class="name"><?= $item['ten_mau_sac'] ?></span>
+                          <span class="<?= $item['ten_mau_sac'] ?>"></span>
                           <input type="radio" name="mau" value="<?= $item['ten_mau_sac'] ?>">
                         </div>
                       <?php endforeach; ?>

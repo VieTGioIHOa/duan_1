@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../assets/css/style_admin.css">
-  <link rel="stylesheet" href="../icons/fontawesome-free-6.2.0-web/css/all.min.css">
+  <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.2.0-web/css/all.css">
 
 
 <body>
@@ -74,82 +74,73 @@
   <div class="containers">
     <div class="left">
       <main class="d-flex flex-nowrap">
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-drak" style="width: 300px;">
-          <a href="index.php?act=home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 300px; height:1500px">
+          <a href="index.php?act=home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <span class="fs-4">Trang quản trị Admin</span>
           </a>
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
               <a href="index.php?act=home" class="nav-link">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#home" />
-                </svg>
+                <i class="fa fa-home"></i>
                 Home
               </a>
             </li>
             <li>
-              <a href="index.php?act=list_cart" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#collection" />
-                </svg>
+              <a href="index.php?act=list_cart" class="nav-link text-white">
+               
+                <i class="fa fa-wallet"></i>
                 Đơn hàng
               </a>
             </li>
             <li>
-              <a href="index.php?act=adddm" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
+              <a href="index.php?act=adddm" class="nav-link text-white">
+               
+                <i class="fa fa-bars"></i>
                 Danh mục
               </a>
             </li>
             <li>
-              <a href="index.php?act=addms" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#toggles2" />
-                </svg>
+              <a href="index.php?act=addms" class="nav-link text-white">
+              
+                <i class="fa fa-palette"></i>
                 Màu sắc
               </a>
             </li>
             <li>
-              <a href="index.php?act=addsp" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#table" />
-                </svg>
+              <a href="index.php?act=addsp" class="nav-link text-white">
+              <i class="fa fa-table"></i>
                 Sản phẩm
               </a>
             </li>
 
             <li>
-              <a href="index.php?act=addtk" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
+              <a href="index.php?act=addtk" class="nav-link text-white">
+              <i class="fa fa-user"></i>
                 Tài khoản
               </a>
             </li>
             <li>
-              <a href="index.php?act=addtt" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#calendar3" />
-                </svg>
+              <a href="index.php?act=listbl" class="nav-link text-white">
+              <i class="fa fa-comment"></i>
+                Bình luận
+              </a>
+            </li>
+            <li>
+              <a href="index.php?act=addtt" class="nav-link text-white">
+              <i class="fa fa-newspaper"></i>
                 Tin tức
               </a>
             </li>
             <li>
-              <a href="index.php?act=listlh" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#geo-fill" />
-                </svg>
+              <a href="index.php?act=listlh" class="nav-link text-white">
+              <i class="fa fa-map"></i>
                 Liên hệ
               </a>
             </li>
             <li>
-              <a href="index.php?act=listgt" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#chevron-right" />
-                </svg>
+              <a href="index.php?act=listgt" class="nav-link text-white">
+              <i class="fa fa-arrow-right"></i>
                 Giới thiệu
               </a>
             </li>

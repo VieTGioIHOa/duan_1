@@ -1,5 +1,7 @@
-<div class="container">
-    <h5 class="alert-info mb-3 pt-3 pb-3 pl-sm-4 shadow-sm text-center">Quản lý đơn hàng</h5>
+<div class="right">
+    <div class="card">
+        <div class="card-header text-center bg-dark text-white text-uppercase py-4">Quản lý đơn hàng</div>
+    </div>
     <div class="row m-1 pb-5">
         <table class="table table-responsive-md">
             <thead class="thead text-center">
@@ -21,7 +23,7 @@
                     $count = count_cart($bill['id_bill']);
                     $suadm = "index.php?act=sua_bill&id_bill=" . $id_bill;
                     $xoadm = "index.php?act=xoa_cart&id_bill=" . $id_bill;
-                   
+
                 ?>
                     <tr>
                         <td>DA1-<?= $bill['id_bill'] ?></td>
@@ -30,10 +32,10 @@
                         <td><?= $count ?></td>
                         <td><?= $bill['total'] ?> vnđ</td>
                         <td><?= $ttdh ?></td>
-                        
+
                         <td class="text-end">
                             <a href="<?= $suadm ?>" class="btn btn-outline-info btn-rounded">Sửa</a>
-                            <a href="<?= $xoadm ?>" class="btn btn-outline-danger btn-rounded" onclick="return confirm('Bạn thật sự muốn xóa?');">Xóa</a>
+                            <!-- <a href="<?= $xoadm ?>" class="btn btn-outline-danger btn-rounded" onclick="return confirm('Bạn thật sự muốn xóa?');">Xóa</a> -->
                         </td>
                     </tr>
                 <?php

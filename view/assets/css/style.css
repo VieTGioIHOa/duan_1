@@ -20,3 +20,67 @@
     font-size: 20px;
     font-weight: 600;
 }
+.Black{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: black;
+}
+.Yellow{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: yellow;
+}
+.Blue{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: blue;
+}
+.Green{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: green;
+}
+.Pink{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color:pink;
+}
+.Orange{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: orangered;
+}
+.Red{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: red;
+}
+.White{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+    background-color: gray;
+}

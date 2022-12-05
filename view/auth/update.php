@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card-header text-center bg-dark text-white text-uppercase"style="margin-top: 100px!important;">Cập nhật tài khoản</div>
+<div class="right">
+    <div class="card-header text-center bg-dark text-white text-uppercase"style="margin-top: 80px!important; padding:10px 0;">Cập nhật tài khoản</div>
     <div class="row m-1 pb-5">
         <?php
             if(isset($_SESSION['user'])){

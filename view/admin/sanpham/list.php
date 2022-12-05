@@ -1,6 +1,6 @@
 <div class="right">
-    <div class="page-title">
-        <h4 class="mt-1 font-weight-bold text-center">Danh sách hàng hóa</h4>
+    <div class="card">
+    <div class="card-header text-center bg-dark text-white text-uppercase">Danh sách sản phẩm</div>
         <?php
         if (isset($thongbao)) { ?>
             <p class="alert alert-success"><?= $thongbao ?></p>
@@ -10,8 +10,17 @@
     </div>
     <div class="box box-primary">
         <div class="box-body">
-
-            <a href="index.php?act=addsp" class="btn btn-success text-white">Thêm mới<i class="fas fa-plus-circle"></i></a>
+            <div class="list_sp_tren my-3 mx-2">
+                <a href="index.php?act=addsp" class="btn btn-success text-white">Thêm mới<i class="fas fa-plus-circle"></i></a>
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 row" role="search" method="POST" action="index.php?act=list_search">
+                    <input type="search" name="kyw" class="form-control col" placeholder="Search..." aria-label="Search">
+                    <div class="col">
+                        <button type="submit" name="timkiem" class="btn btn-secondary btn-number btn-custom">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
             <form action="index.php?act=listhh" method="post" class="table-responsive">
                 <table width="100%" class="table table-hover table-bordered text-center">
                     <thead class="thead-dark">
@@ -79,11 +88,17 @@
             </form>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <?php
+                    for ($i = 1; $i <= $trang; $i++) {
+                    ?>
+                        <li class="page-item"><a <?php if ($i == $page) {
+                                echo  'style="background:gray;color:white"';
+                                                    } else {
+                                                        echo '';
+                                                    } ?> class="page-link" href="index.php?act=listhh&trang=<?= $i ?>"><?= $i ?> </a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>

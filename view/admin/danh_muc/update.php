@@ -1,4 +1,5 @@
 <div class="right">
+    
     <?php
     if (is_array($dm)) {
         extract($dm);
@@ -7,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header text-center bg-dark text-white text-uppercase">Sửa danh mục</div>
+                <div class="card-header text-center bg-dark text-white text-uppercase py-4">Sửa danh mục</div>
                 <div class="card-body">
                     <form action="index.php?act=updm" method="POST">
                         <div class="mb-3">

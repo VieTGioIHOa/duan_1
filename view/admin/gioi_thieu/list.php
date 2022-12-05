@@ -1,7 +1,6 @@
 <div class="right">
-    <div class="page-title">
-        <h4 class="mt-5 font-weight-bold text-center bg-dark text-white py-2">Bài viết giới thiệu về cửa hàng</h4>
-        <!-- <div class="card-header text-center bg-dark text-white text-uppercase">Cập nhật khách hàng</div> -->
+    <div class="card">
+        <div class="card-header text-center bg-dark text-white text-uppercase py-4">Bài viết giới thiệu</div>
     </div>
     <div class="box box-primary">
         <div class="box-body">
@@ -18,7 +17,7 @@
                         <tr>
                             <th>Tiêu đề</th>
                             <th>Ảnh</th>
-                            
+
                             <th></th>
                         </tr>
                     </thead>
@@ -27,7 +26,7 @@
                         foreach ($list as $item) {
                             extract($item);
                             $suagt = "index.php?act=suagt&id_gioi_thieu=" . $id_gioi_thieu;
-                            $img_path = "../../uploaded/images/". $anh;
+                            $img_path = "../../uploaded/images/" . $anh;
                             if (is_file($img_path)) {
                                 $img = "<img src='$img_path' height='130' width='130' class='object-fit-contain'>";
                             } else {

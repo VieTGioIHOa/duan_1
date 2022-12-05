@@ -153,8 +153,7 @@
       <div class="col-lg-12">
         <div class="women-item-carousel">
           <div class="owl-women-item owl-carousel">
-            
-            <?= require 'products_women.php'?>
+            <?= include 'products_women.php'?>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
         extract($images); 
     ?>
     <div class="single-news-wrapper">
-        <div class="title"><?= $tieu_de ?></div>
+        <div class="titles"><?= $tieu_de ?></div>
         <h4 class="intro"> <?= $intro ?></h4>
         <div>
             <div class="text"><?=$noi_dung1 ?></div>

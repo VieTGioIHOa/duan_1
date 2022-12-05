@@ -7,7 +7,7 @@ if (is_array($ms)) {
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header text-center bg-dark text-white text-uppercase">Sửa màu sắc</div>
+                <div class="card-header text-center bg-dark text-white text-uppercase py-4">Sửa màu sắc</div>
                 <div class="card-body">
                     <form action="index.php?act=upms" method="POST">
                         <div class="mb-3">

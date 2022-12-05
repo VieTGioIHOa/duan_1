@@ -49,6 +49,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     array_push($list_san_pham_nu, $item);
                 }
             }
+            (count($list_san_pham_nu));
             include './view/client/women.php';
             break;
 

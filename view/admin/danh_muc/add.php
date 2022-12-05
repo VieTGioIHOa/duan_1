@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header text-center bg-dark text-white text-uppercase">Thêm danh mục</div>
+                <div class="card-header text-center bg-dark text-white text-uppercase py-4">Thêm danh mục</div>
                 <div class="card-body">
                     <?php
                     if (isset($thongbao)) { ?>

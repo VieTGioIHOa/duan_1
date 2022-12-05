@@ -1,7 +1,7 @@
 <div class="right">
-    <div class="page-title">
-        <h4 class="mt-5 font-weight-bold text-center bg-dark text-white py-2">Danh sách khách hàng liên hệ</h4>
-        <!-- <div class="card-header text-center bg-dark text-white text-uppercase">Cập nhật khách hàng</div> -->
+    <div class="card">
+        
+    <div class="card-header text-center bg-dark text-white text-uppercase py-4">Danh sách khách hàng liên hệ</div>
     </div>
     <div class="box box-primary">
         <div class="box-body">

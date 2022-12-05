@@ -118,9 +118,10 @@ function san_pham_select_by_danh_muc($id_danh_muc){
 
 
 function san_pham_select_keyword($keyword){
-    $sql = "SELECT * FROM san_pham hh "
-            . " JOIN danh_muc dm ON dm.id_danh_muc=hh.id_danh_muc "
-            . " WHERE ten_san_pham LIKE ? OR ten_danh_muc LIKE ?";
+    $sql = "SELECT * FROM san_pham hh 
+            JOIN danh_muc dm ON dm.id_danh_muc=hh.id_danh_muc 
+            WHERE ten_san_pham LIKE ? OR ten_danh_muc LIKE ?
+            ORDER BY id_san_pham DESC";
     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
 }
 
@@ -158,6 +159,17 @@ function san_pham_select_alls(){
     $sql = "SELECT s.*,d.ten_danh_muc FROM san_pham s 
     JOIN danh_muc d ON d.id_danh_muc=s.id_danh_muc";
     return pdo_query($sql);
+}
+
+function san_pham_select_allss($begin){
+    $sql = "SELECT s.*,d.ten_danh_muc FROM san_pham s 
+    JOIN danh_muc d ON d.id_danh_muc=s.id_danh_muc
+    ORDER BY id_san_pham DESC LIMIT $begin,4";
+    return pdo_query($sql);
+}
+function san_pham_count(){
+    $sql = "SELECT COUNT(id_san_pham) as dem FROM san_pham";
+    return pdo_query_one($sql);
 }
 function san_pham_select_mau($id_san_pham){
     $sql = "SELECT m.ten_mau_sac FROM mau_sac m 

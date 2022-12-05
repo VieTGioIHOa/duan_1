@@ -1,6 +1,6 @@
 <div class="right">
     <div class="page-title">
-        <h4 class="mt-5 font-weight-bold text-center">Danh sách tin tức</h4>
+    <div class="card-header text-center bg-dark text-white text-uppercase py-4">Danh sách tin tức</div>
         <?php
 				if(isset($thongbao)) { ?>
 					<p class="alert alert-danger"><?= $thongbao ?></p>
@@ -11,7 +11,7 @@
     <div class="box box-primary">
         <div class="box-body">
 
-        <a href="index.php?act=addtt" class="btn btn-success text-white">Thêm mới<i class="fas fa-plus-circle"></i></a>
+        <a href="index.php?act=addtt" class="btn btn-success text-white mx-3 my-2">Thêm mới<i class="fas fa-plus-circle"></i></a>
             <form action="index.php?act=listtt" method="post" class="table-responsive">
                 <table width="100%" class="table table-hover table-bordered text-center">
                     <thead class="thead-dark">

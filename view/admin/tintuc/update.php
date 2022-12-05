@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header text-center bg-dark text-white text-uppercase">Cập nhật khách hàng</div>
+                <div class="card-header text-center bg-dark text-white text-uppercase">Cập nhật tin tức</div>
                 <?php
                 if (isset($thongbao)) { ?>
                     <p class="alert alert-danger"><?= $thongbao ?></p>

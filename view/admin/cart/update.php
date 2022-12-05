@@ -1,4 +1,4 @@
-<div class="container tong">
+<div class="right tong px-5">
     <form action="index.php?act=update_bill" class="form" method="POST">
         <div class="form-groups">
             <div class="left">
@@ -36,7 +36,7 @@
         </div>
         <input type="hidden" name="trang_thai" value="0">
         <div class="d-flex justify-content-center">
-            <input type="hidden" name="id_bill" value="<?= $bill_by_id['id_bill']?>">
+            <input type="hidden" name="id_bill" value="<?= $bill_by_id['id_bill'] ?>">
             <button type="submit" name="update" class="btn btn-success btn-block w-50">Xác
                 nhận
             </button>
