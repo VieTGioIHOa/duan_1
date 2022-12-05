@@ -47,9 +47,9 @@
                                     <form action="index.php?act=quantity_mod" method="POST">
                                       <input type="hidden" value="<?= $cart[1]?>" name="iname" >
                                       <div class="number-input">
-                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-                                        <input onchange="this.form.submit()" name='mod_quantity' class="iquantity" type="number" min="1" max="10" value="<?= $cart[4] ?>">
-                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                        <button type="submit" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                                        <input name='mod_quantity' class="iquantity" type="number" min="1" max="10" value="<?= $cart[4] ?>">
+                                        <button type="submit" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                       </div>
                                       <!-- <input onchange="this.form.submit()" name='mod_quantity' class="iquantity" type="number" min="1" max="10" class="form-control text-center" value="<?= $cart[4] ?>"> -->
                                     </form>
