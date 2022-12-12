@@ -11,6 +11,7 @@
                     <th>Số lượng mặt hàng</th>
                     <th>Tổng giá trị đơn hàng</th>
                     <th>Tình trạng đơn hàng</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody class="text-center" id="giohang">
@@ -19,13 +20,15 @@
                         extract($bill);
                         $ttdh = get_ttdh($bill['trang_thai_don_hang']);
                         $count = count_cart($bill['id_bill']);
+                        $ct = "index.php?act=chi_tiet_bill&id_bill=" . $id_bill;
                     echo '
                     <tr>
                         <td>DAM-'.$bill['id_bill'].'</td>
                         <td>'.$bill['ngay_dat_hang'].'</td>
                         <td>'.$count.'</td>
-                        <td>'.$bill['total'].'$</td>
+                        <td>'.currency_format($bill['total']).'</td>
                         <td>'.$ttdh.'</td>
+                        <td><a href="'. $ct.'" class="btn btn-outline-info btn-rounded">Chi tiết</a></td>
                     </tr>
                     ';
                     }

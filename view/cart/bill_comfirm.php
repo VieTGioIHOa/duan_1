@@ -38,8 +38,7 @@
                  
             </div>
             <div class="d-flex justify-content-center">
-                <button  type="submit" name="dathang" class="btn btn-success btn-block ">Xác
-                    nhận</button>
+                <button  type="submit" name="dathang" class="btn btn-success btn-block ">Quay về trang chủ</button>
             </div>
             
         </form>

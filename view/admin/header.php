@@ -74,7 +74,7 @@
   <div class="containers">
     <div class="left">
       <main class="d-flex flex-nowrap">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 300px; height:1500px">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 300px; height:2300px">
           <a href="index.php?act=home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <span class="fs-4">Trang quản trị Admin</span>
           </a>
@@ -142,6 +142,12 @@
               <a href="index.php?act=listgt" class="nav-link text-white">
               <i class="fa fa-arrow-right"></i>
                 Giới thiệu
+              </a>
+            </li>
+            <li>
+              <a href="../../index.php" class="nav-link text-white">
+              <i class="fa fa-arrow-right-from-bracket"></i>
+                Trở về trang chủ
               </a>
             </li>
           </ul>

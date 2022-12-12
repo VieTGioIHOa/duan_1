@@ -17,10 +17,25 @@ include '../../models/binhluan.php';
 /*------------------------THỐNG KÊ---------------------- */
 $list_thongke = load_all_thongke();
 $count_san_pham = count_san_pham();
+$count_tai_khoan = count_tai_khoan();
+$ban_chay = san_pham_ban_chay_nhat();
+$don_hang_moi = count_dh_moi();
+$dxl = count_dh_dxl();
+$dg = count_dh_dg();
+$dx = count_dh_dx();
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
+        case 'doanhthu':
+            $san_pham_da_giao = thong_ke_select_by_giao_xong();
+            $doanh_thu = 0;
+            foreach ($san_pham_da_giao as $key => $value) {
+                $doanh_thu+= $value['total'];
+            }
+            var_dump($doanh_thu);
+            include 'home.php';
+            break;
             /* ------------------------DANH MỤC -----------------------*/
         case 'adddm':
             if (isset($_POST['themmoi'])) {
@@ -100,6 +115,7 @@ if (isset($_GET['act'])) {
                         $thongbao = "Thêm thành công";
                     }
                 }
+                // List các kích cỡ
                 if (isset($_POST['id_kich_co'])) {
                     $size = $_POST['id_kich_co'];
                     foreach ($size as $key => $value) {
@@ -107,6 +123,7 @@ if (isset($_GET['act'])) {
                         $thongbao = "Thêm thành công";
                     }
                 }
+                // List màu sắc
                 if (isset($_POST['id_mau_sac'])) {
                     $mau = $_POST['id_mau_sac'];
                     foreach ($mau as $key => $value) {

@@ -91,11 +91,6 @@ function san_pham_img_select_by_id($id_san_pham){
     return pdo_query($sql, $id_san_pham);
 }
 
-function san_pham_exist($id_san_pham){
-    $sql = "SELECT count(*) FROM san_pham WHERE id_san_pham=?";
-    return pdo_query_value($sql, $id_san_pham) > 0;
-}
-
 
 function san_pham_select_dac_biet_nam(){
     $sql = "SELECT * FROM san_pham WHERE dac_biet=2";
@@ -125,31 +120,6 @@ function san_pham_select_keyword($keyword){
     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
 }
 
-// function san_pham_select_page(){
-//     if(!isset($_SESSION['page_no'])){
-//         $_SESSION['page_no'] = 0;
-//     }
-//     if(!isset($_SESSION['page_count'])){
-//         $row_count = pdo_query_value("SELECT count(*) FROM san_pham");
-//         $_SESSION['page_count'] = ceil($row_count/10.0);
-//     }
-//     if(exist_param("page_no")){
-//         $_SESSION['page_no'] = $_REQUEST['page_no'];
-//     }
-//     if($_SESSION['page_no'] < 0){
-//         $_SESSION['page_no'] = $_SESSION['page_count'] - 1;
-//     }
-//     if($_SESSION['page_no'] >= $_SESSION['page_count']){
-//         $_SESSION['page_no'] = 0;
-//     }
-//     $sql = "SELECT * FROM san_pham ORDER BY ma_hh LIMIT ".$_SESSION['page_no'].", 10";
-//     return pdo_query($sql);
-// }
-function san_pham_exist_add($ten_san_pham)
-{
-    $sql = "SELECT count(*) FROM san_pham WHERE ten_san_pham=?";
-    return pdo_query_value($sql, $ten_san_pham) > 0;
-}
 function kich_co_select_all(){
     $sql = "SELECT * FROM kich_co ";
     return pdo_query($sql);
@@ -182,4 +152,12 @@ function san_pham_select_size($id_san_pham){
     JOIN san_pham_size sz ON sz.id_size=k.id_kich_co
     where id_san_pham=?";
     return pdo_query($sql,$id_san_pham);
+}
+function san_pham_select_so_luong($id_san_pham){
+    $sql = "SELECT so_luong FROM san_pham WHERE id_san_pham =?";
+    return pdo_query_one($sql,$id_san_pham);
+}
+function san_pham_update_so_luong($id_san_pham,$so_luong){
+    $sql = "UPDATE san_pham SET so_luong=? WHERE id_san_pham=?";
+    pdo_execute($sql,$so_luong,$id_san_pham);
 }

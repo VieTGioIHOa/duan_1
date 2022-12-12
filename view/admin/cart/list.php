@@ -30,11 +30,11 @@
                         <td><?= $bill['ho_ten'] ?></td>
                         <td><?= $bill['ngay_dat_hang'] ?></td>
                         <td><?= $count ?></td>
-                        <td><?= $bill['total'] ?> vnđ</td>
+                        <td><?=currency_format($bill['total'])  ?></td>
                         <td><?= $ttdh ?></td>
 
                         <td class="text-end">
-                            <a href="<?= $suadm ?>" class="btn btn-outline-info btn-rounded">Sửa</a>
+                            <a href="<?= $suadm ?>" class="btn btn-outline-info btn-rounded">Chi tiết</a>
                             <!-- <a href="<?= $xoadm ?>" class="btn btn-outline-danger btn-rounded" onclick="return confirm('Bạn thật sự muốn xóa?');">Xóa</a> -->
                         </td>
                     </tr>

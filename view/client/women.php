@@ -27,7 +27,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <?php foreach ($list_san_pham_nu as $item) : ?>
+            <?php foreach ($list_san_pham_nu_by_page as $item) : ?>
                 <?php
                 extract($item);
                 $img_path = './uploaded/images/' . $anh;
@@ -48,8 +48,8 @@
                         </div>
                         <div class="down-content">
                             <h4><?= $ten_san_pham ?></h4>
-                            <del style="color:black"><?= $gia ?>VNĐ</del>
-                            <span style="color:red;font-weight:600;font-size:23px"><?= $giam_gia ?>VNĐ</span>
+                            <del style="color:black"><?= currency_format($gia)  ?></del>
+                            <span style="color:red;font-weight:600;font-size:23px"><?= currency_format($giam_gia)  ?></span>
                             <ul class="stars">
                                 <li><i class="fa fa-star"></i></li>
                                 <li><i class="fa fa-star"></i></li>
@@ -64,21 +64,14 @@
             <div class="col-lg-12">
                 <div class="pagination">
                     <ul>
-                        <li class="active">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">></a>
-                        </li>
+                        <?php for ($i = 0; $i < $so_trang; $i++) { ?>
+                            <?php
+                            $trang = isset($_GET['trang']) ? $_GET['trang'] : 1
+                            ?>
+                            <li class="<?= $i + 1 == $trang ? 'active' : '' ?>">
+                                <a href="index.php?act=sanpham_nu&trang=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

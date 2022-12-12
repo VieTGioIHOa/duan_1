@@ -14,21 +14,22 @@ include './models/binhluan.php';
 include './models/cart.php';
 
 include './view/client/header.php';
+
 if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
-// $listhh_in_tc = hang_hoa_select_dac_biet();
-// $listhh_yt = hang_hoa_select_top10();
+
+// Các sản phẩm nổi bật ở trang chủ
 $nam = san_pham_select_dac_biet_nam();
 $nu = san_pham_select_dac_biet_nu();
 $te = san_pham_select_dac_biet_te();
-// echo('<pre>');
-//  var_dump($nam);
+
 if (isset($_GET['act']) && $_GET['act'] != "") {
     $act = $_GET['act'];
     switch ($act) {
             /*---------------------------LOAD SẢN PHẨM----------------------------- */
         case 'sanpham_nam':
+           
             $danh_muc_nam = danh_muc_select_nam();
             $list_san_pham_nam = [];
             foreach ($danh_muc_nam as $value) {
@@ -37,6 +38,10 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     array_push($list_san_pham_nam, $item);
                 }
             }
+            $count = count($list_san_pham_nam);
+            $pop = 6;
+            $so_trang = ceil($count/$pop);
+            $list_san_pham_nam_by_page = array_slice($list_san_pham_nam,($_GET['trang']-1)*$pop,$pop);
             include './view/client/men.php';
             break;
 
@@ -49,7 +54,10 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     array_push($list_san_pham_nu, $item);
                 }
             }
-            (count($list_san_pham_nu));
+            $count = count($list_san_pham_nu);
+            $pop = 6;
+            $so_trang = ceil($count/$pop);
+            $list_san_pham_nu_by_page = array_slice($list_san_pham_nu,($_GET['trang']-1)*$pop,$pop);
             include './view/client/women.php';
             break;
 
@@ -62,6 +70,10 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     array_push($list_san_pham_te, $item);
                 }
             }
+            $count = count($list_san_pham_te);
+            $pop = 6;
+            $so_trang = ceil($count/$pop);
+            $list_san_pham_te_by_page = array_slice($list_san_pham_te,($_GET['trang']-1)*$pop,$pop);
             include './view/client/child.php';
             break;
         case 'sanpham_tim_kiem':
@@ -89,7 +101,6 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 $ngay_bl = date_format(date_create(), 'Y-m-d');
                 binh_luan_insert($noi_dung, $ngay_bl, $id_tai_khoan, $id_san_pham);
                 $list = binh_luan_select_alls($id_san_pham);
-                // binh_luan_insert($noi_dung,$ngay_bl,$id_tai_khoan,$id_san_pham);
                 header('location: index.php?act=chitietsp&id_san_pham=' . $id_san_pham . '&id_danh_muc=' . $id_danh_muc . '');
             }
             include './view/client/binhluan.php';
@@ -160,6 +171,11 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 $dir = "./uploaded/user/";
                 $target_file = $dir . basename($img['name']);
                 $ext = pathinfo($imgname, PATHINFO_EXTENSION);
+                // bắt đầu bằng chữ in hoa, 6-32 kí tự,chữ, số, kí tự đb, dấu chấm
+                $validate_mat_khau = "/^([A-Z]){1}([\w_\.!@#$%^&*()]+){5,31}$/";
+                //  gồm các chữ cái, số, gạch ngang, gạch dưới, từ 6-32 kí tự
+                $validate_ten_dang_nhap = "/^[A-Za-z0-9_\.]{6,32}$/"; 
+                $validate_email = "/^[A-Za-z0-9_.]{6,32}@([a-zA-Z0-9]{2,12})(.[a-zA-Z]{2,12})+$/";
                 if (tai_khoan_exist($ten_dang_nhap)) {
                     $upload = false;
                     $thongbao = "Tên đăng nhập đã tồn tại";
@@ -169,6 +185,17 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 } else if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
                     $upload = false;
                     $thongbao = "File không phải ảnh";
+                } else if(!preg_match($validate_ten_dang_nhap ,$ten_dang_nhap, $matchs)){
+                    $upload = false;
+                    $thongbao = "Tên đăng nhập bạn vừa nhập không đúng định dạng";
+                }
+                else if(!preg_match($validate_mat_khau ,$mat_khau, $matchs)){
+                    $upload = false;
+                    $thongbao = "Mật khẩu bạn vừa nhập không đúng định dạng";
+                }
+                else if(!preg_match($validate_email ,$email, $matchs)){
+                    $upload = false;
+                    $thongbao = "Email bạn vừa nhập không đúng định dạng";
                 }
                 if ($upload != false) {
                     move_uploaded_file($img['tmp_name'], $target_file);
@@ -260,7 +287,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 $count = 0;
                 if (isset($_SESSION['mycart']) && (count($_SESSION['mycart']) > 0)) {
                     foreach ($_SESSION['mycart'] as $sp) {
-                        if ($sp[0] == $id_san_pham) {
+                        if ($sp[0] == $id_san_pham && $sp[5] == $size && $sp[6] == $mau) {
                             $so_luong += $sp[4];
                             $count = 1;
                             $_SESSION['mycart'][$i][4] = $so_luong;
@@ -274,6 +301,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     array_push($_SESSION['mycart'], $spadd);
                 }
             }
+            
             include './view/cart/cart.php';
             break;
         case 'delcart':
@@ -305,7 +333,6 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             header('location: index.php?act=viewcart');
             break;
         case 'bill':
-            var_dump($_POST['iquantity']);
             $thongbao = 'Bạn cần đăng nhập để tới phần đặt hàng';
             include './view/cart/bill.php';
             break;
@@ -327,17 +354,28 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 // insert vào bảng cart với session['mycart'] a $id_bill 
                 foreach ($_SESSION['mycart'] as $cart) {
                     $ttien  = $cart[3] * $cart[4];
-                   cart_insert($cart[1],$cart[3],$cart[4],$cart[5],$cart[6],$ttien,$id_bill,$_SESSION['user']['id_tai_khoan'],$cart[0]);
+                    cart_insert($cart[1],$cart[3],$cart[4],$cart[5],$cart[6],$ttien,$id_bill,$_SESSION['user']['id_tai_khoan'],$cart[0]);
+                    $so_luong_dtb = san_pham_select_so_luong($cart[0]);
+                    $so_luong = $cart[4];
+                    $con_lai = $so_luong_dtb['so_luong'] - $so_luong;
+                    san_pham_update_so_luong($cart[0],$con_lai);
                 }
+
                 //xóa session cart
                 $_SESSION['mycart'] = [];
             }
+           
             $list_bill = loadone_bill($id_bill);
             include './view/cart/bill_comfirm.php';
             break;
         case 'mybill':
             $list_bill = load_all_bill($_SESSION['user']['id_tai_khoan']);
             include './view/cart/mybill.php';
+            break;
+        case 'chi_tiet_bill':
+            $bill_by_id = bill_select_by_id($_GET['id_bill']);
+            $cart_by_id = cart_select_by_id($_GET['id_bill']);
+            include './view/cart/chi_tiet_mybill.php';
             break;
         case 'viewcart':
             include './view/cart/cart.php';

@@ -48,8 +48,8 @@
             <div class="right-content">
               <h4><?= $ten_san_pham ?></h4>
               <div class="price">
-                <del class="text-black"><?= $gia ?>VNĐ</del>
-                <div class="text-danger"><?= $giam_gia ?>VNĐ</div>
+                <del class="text-black"><?=currency_format($gia)  ?>VNĐ</del>
+                <div class="text-danger"><?=currency_format($giam_gia) ?></div>
               </div>
               <ul class="stars">
                 <li><i class="fa fa-star"></i></li>
@@ -65,17 +65,29 @@
                   <?= $mo_ta ?>
                 </p>
               </div>
+              <?php
+                  $so_luong_trong_cart = 0;
+                  if(isset($_SESSION['mycart'])){
+                    foreach ($_SESSION['mycart'] as $key => $value) {
+                      if($value[0] == $_GET['id_san_pham']){
+                          $so_luong_trong_cart = $value[4];
+                      }
+                    }
+                  }
+                  if ($so_luong >0 && $so_luong_trong_cart < $so_luong) {
+                ?>
               <div class="order-content">
                 <div class="left-content">
                   <h6>Quantity</h6>
                   <h6>Size</h6>
                   <h6>Color</h6>
                 </div>
+                
                 <div class="right-content">
                   <form action="index.php?act=add_to_cart" method="POST">
                     <div class="number-input">
                       <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                      <input name='so_luong' class="" type="number" min="1" max="10">
+                      <input name='so_luong' class="" type="number" min="1" max="<?= $so_luong - $so_luong_trong_cart ?>" required>
                       <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                     </div>
                     <!-- <input type="number" min="1" max="20" name="so_luong" class="input qty"> -->
@@ -87,7 +99,7 @@
                       <?php foreach ($size_san_pham as $item) : ?>
                         <div>
                           <span class="name"><?= $item['ten_kich_co'] ?></span>
-                          <input type="radio" name="size" value="<?= $item['ten_kich_co'] ?>">
+                          <input type="radio" name="size" value="<?= $item['ten_kich_co'] ?>" required>
                         </div>
                       <?php endforeach; ?>
                     </div>
@@ -95,33 +107,27 @@
                       <?php foreach ($mau_san_pham as $item) : ?>
                         <div>
                           <span class="<?= $item['ten_mau_sac'] ?>"></span>
-                          <input type="radio" name="mau" value="<?= $item['ten_mau_sac'] ?>">
+                          <input type="radio" name="mau" value="<?= $item['ten_mau_sac'] ?>" required>
                         </div>
                       <?php endforeach; ?>
                     </div>
                     <input type="submit" name="add_to_cart" class="btn-add-to-cart" value="Add To Cart">
                   </form>
+                <?php
+                  } else{
+                ?>
+                  <button class="mx-5 my-3 btn btn-danger w-75" style="height:75px; font-size:20px">Sản phẩm đã hết hàng</button>
+                <?php
+                  }
+                ?>
                 </div>
               </div>
-              <!-- <div class="total">
-                <h4>Total: $210.00</h4>
-                
-              </div> -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!------- BÌNH LUẬN ------->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $("#binhluan").load("view/client/comment.php", {
-          id_san_pham: <?= $id_san_pham ?>
-        });
-      });
-    </script>\ -->
     <div class="row" id="binhluan">
     <?php include 'binhluan.php'; ?>
     </div>

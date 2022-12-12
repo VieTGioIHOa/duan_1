@@ -54,7 +54,7 @@ $list = binh_luan_select_alls($id_san_pham);
                         </div>
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-success send px-5" name="dang">Đăng bình luận
-                                <i class="fa fa-long-arrow-right ml-1"></i>
+                            <i class="fa-thin fa-paper-plane"></i>
                             </button>
                         </div>
                     </form>

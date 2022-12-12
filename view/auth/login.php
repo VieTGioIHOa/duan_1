@@ -13,7 +13,7 @@
       }
       ?>
       <input type="text" id="login" class="fadeIn second" name="ten_dang_nhap" placeholder="Username">
-      <input type="text" id="password" class="fadeIn third" name="mat_khau" placeholder="Password">
+      <input type="password" id="password" class="fadeIn third" name="mat_khau" placeholder="Password">
       <input type="submit" class="fadeIn fourth" value="Log In" name="dangnhap">
     </form>
 

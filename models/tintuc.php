@@ -42,6 +42,10 @@ function tin_tuc_select_all(){
     $sql = "SELECT * FROM tin_tuc ORDER BY id_tin_tuc desc";
     return pdo_query($sql);
 }
+function tin_tuc_select_alls(){
+    $sql = "SELECT * FROM tin_tuc ORDER BY id_tin_tuc desc limit 1,6";
+    return pdo_query($sql);
+}
 
 function tin_tuc_select_by_id($id_tin_tuc){
     $sql = "SELECT * FROM tin_tuc WHERE id_tin_tuc=?";

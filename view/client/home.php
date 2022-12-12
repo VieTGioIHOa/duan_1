@@ -8,7 +8,7 @@
               <h4>YODY FASHION</h4>
               <span>LOOK GOOD &amp; FEEL GOOD!</span>
               <div class="main-border-button">
-               
+
               </div>
             </div>
             <img src="view/assets/images/left-banner-image.jpg" alt="" />
@@ -112,9 +112,9 @@
 <section class="section" id="men">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="section-heading">
-          <h2>MEN'S FASHION IN YODY.</h2>
+          <h2>Thời trang nam tại Hexa</h2>
           <span>THĂNG HẠNG PHONG CÁCH - NÂNG TẦM PHONG THÁI.</span>
         </div>
       </div>
@@ -126,7 +126,7 @@
         <div class="men-item-carousel">
           <div class="owl-men-item owl-carousel">
 
-            <?= require 'products_men.php'?>
+            <?= require 'products_men.php' ?>
 
           </div>
         </div>
@@ -140,9 +140,9 @@
 <section class="section" id="women">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="section-heading">
-          <h2>WOMEN'S FASHION IN YODY.</h2>
+          <h2>thời trang nữ tại hexa</h2>
           <span>THANH LỊCH, SẮC XẢO - CHÌA KHÓA MẶC ĐẸP CHO PHỤ NỮ.</span>
         </div>
       </div>
@@ -153,7 +153,7 @@
       <div class="col-lg-12">
         <div class="women-item-carousel">
           <div class="owl-women-item owl-carousel">
-            <?= include 'products_women.php'?>
+            <?= include 'products_women.php' ?>
           </div>
         </div>
       </div>
@@ -166,9 +166,9 @@
 <section class="section" id="kids">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="section-heading">
-          <h2>KID'S FASHION IN YODY.</h2>
+          <h2>thời trang trẻ em tại hexa</h2>
           <span>THỜI TRANG Ở NHÀ CÙNG BÉ VUI CHƠI THOẢI MÁI.</span>
         </div>
       </div>
@@ -179,8 +179,8 @@
       <div class="col-lg-12">
         <div class="kid-item-carousel">
           <div class="owl-kid-item owl-carousel">
-            
-            <?= require 'products_child.php'?>
+
+            <?= require 'products_child.php' ?>
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@
 <!-- ***** Kids Area Ends ***** -->
 
 <!-- ***** Explore Area Starts ***** -->
-<section class="section" id="explore">
+<!-- <section class="section" id="explore">
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
@@ -253,7 +253,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- ***** Explore Area Ends ***** -->
 
 <!-- ***** Social Area Starts ***** -->
@@ -262,27 +262,28 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="section-heading">
-          <h2>Social Media</h2>
-          <span>Details to details is what makes Hexashop different from the
-            other themes.</span>
+          <h2>Tin tức</h2>
         </div>
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row images">
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Fashion</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
+      <?php $list_tin_tuc = tin_tuc_select_alls(); ?>
+      <?php foreach ($list_tin_tuc as $item) : ?>
+        <?php extract($item); ?>
+        <div class="col-2">
+          <div class="thumb">
+            <div class="icon">
+              <a href="index.php?act=chitiet_tintuc&id=<?= $id_tin_tuc ?>">
+                <p style="color: white; font-size:17px; font-weight:600;font-family:Verdana, Geneva, Tahoma, sans-serif"><?= $tieu_de ?></p>
+              </a>
+            </div>
+            <a href="index.php?act=chitiet_tintuc&id=<?= $id_tin_tuc ?>"><img src="./uploaded/tintuc/<?= $anh_chinh ?>"alt=""></a>
           </div>
-          <img src="view/assets/images/instagram-01.jpg" alt="" />
         </div>
-      </div>
-      <div class="col-2">
+      <?php endforeach; ?>
+      <!-- <div class="col-2">
         <div class="thumb">
           <div class="icon">
             <a href="http://instagram.com">
@@ -336,7 +337,7 @@
           </div>
           <img src="view/assets/images/instagram-06.jpg" alt="" />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

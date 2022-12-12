@@ -23,6 +23,12 @@
                           $tong = 0;
                           $i = 0;
                           foreach ($_SESSION['mycart'] as $cart) : ?>
+                          <?php 
+                            $amount = san_pham_select_so_luong($cart[0]);
+                            if($amount['so_luong'] == $cart[4]){
+                                echo "<script> alert('Sản phẩm này chỉ có tối đa: ".$amount['so_luong']." sản phẩm'); </script>";
+                            }
+                          ?>
                               <tr>
                                   <!-- <?php
                                   $ttien = number_format($cart[3]) * number_format($cart[4]);
@@ -48,7 +54,7 @@
                                       <input type="hidden" value="<?= $cart[1]?>" name="iname" >
                                       <div class="number-input">
                                         <button type="submit" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-                                        <input name='mod_quantity' class="iquantity" type="number" min="1" max="10" value="<?= $cart[4] ?>">
+                                        <input name='mod_quantity' class="iquantity" onchange="this.form.submit()" type="number" min="1" max="<?= $amount['so_luong'] ?>" value="<?= $cart[4] ?>">
                                         <button type="submit" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                       </div>
                                       <!-- <input onchange="this.form.submit()" name='mod_quantity' class="iquantity" type="number" min="1" max="10" class="form-control text-center" value="<?= $cart[4] ?>"> -->
@@ -92,3 +98,4 @@
 </div>
 </div>
 <script src="./view/assets/js/app.js"></script>
+      

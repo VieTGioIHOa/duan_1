@@ -59,10 +59,10 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index.php" class="active">TRANG CHỦ</a></li>
-                            <li class="scroll-to-section"><a href="index.php?act=sanpham_nam">NAM</a></li>
-                            <li class="scroll-to-section"><a href="index.php?act=sanpham_nu">NỮ</a></li>
-                            <li class="scroll-to-section"><a href="index.php?act=sanpham_te">TRẺ EM</a></li>
+                            <li class="scroll-to-section"><a href="index.php" class="<?= !isset($_GET['act']) ? 'active' : ''?>">TRANG CHỦ</a></li>
+                            <li class="scroll-to-section"><a href="index.php?act=sanpham_nam&trang=1" class="<?=isset($_GET['act']) && $_GET['act'] == 'sanpham_nam' ? 'active' : ''?>">NAM</a></li>
+                            <li class="scroll-to-section"><a href="index.php?act=sanpham_nu&trang=1" class="<?=isset($_GET['act']) && $_GET['act'] == 'sanpham_nu' ? 'active' : ''?>">NỮ</a></li>
+                            <li class="scroll-to-section"><a href="index.php?act=sanpham_te&trang=1" class="<?=isset($_GET['act']) && $_GET['act'] == 'sanpham_te' ? 'active' : ''?>">TRẺ EM</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">YODY</a>
                                 <ul>

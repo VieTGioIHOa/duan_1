@@ -1,6 +1,6 @@
 <div class="col-12" id="reviews">
     <div class="card border-light mb-3">
-        <div class="card-header bg-secondary text-white text-uppercase text-center container" ><i class="fa fa-comment"></i> Đánh giá
+        <div class="card-header bg-secondary text-white text-uppercase text-center container" ><i class="fa fa-comment"></i> Bình luận
         </div>
         <?php
             extract($list);
@@ -32,7 +32,7 @@
                 </div>
                 <div class="text-center mt-4">
                 <button type="submit" class="btn btn-success send px-5" name="dang">Đăng 
-                        <i class="fa fa-long-arrow-right ml-1"></i>
+                        <i class="fa fa-paper-plane mx-1 py-1"></i>
                     </button>
                 </div>
             </form>

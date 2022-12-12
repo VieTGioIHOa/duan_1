@@ -31,7 +31,6 @@ if (isset($_SESSION['user'])) {
                 </div>
 
             </div>
-
             <div class="bottom">
                 <label for="">Phương thức thanh toán </label>
                 <br>
@@ -74,8 +73,8 @@ if (isset($_SESSION['user'])) {
                     foreach ($_SESSION['mycart'] as $cart) : ?>
                         <tr>
                             <?php
-                            $ttien = $cart[3] * $cart[4];
-                            $tong += $ttien;
+                                $ttien = $cart[3] * $cart[4];
+                                $tong += $ttien;
                             ?>
                             <td><?= $cart[1] ?></td>
                             <td><img src="<?= './uploaded/images/' . $cart[2] ?>" . alt="" width="70" height="70"></td>

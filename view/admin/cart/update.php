@@ -1,6 +1,6 @@
-<div class="right tong px-5">
+<div class="right tong mx-5">
     <form action="index.php?act=update_bill" class="form" method="POST">
-        <div class="form-groups">
+    <div class="form-groups">
             <div class="left">
                 <label for="">Họ tên</label> <br>
                 <input type="text" name="ho_ten" class="input" aria-describedby="helpId" value="<?= $bill_by_id['ho_ten'] ?>" readonly>
@@ -24,8 +24,7 @@
                 <label for="">Địa chỉ nhận hàng</label> <br>
                 <input type="text" name="dia_chi" id="" class="input" placeholder="" readonly aria-describedby="helpId" value="<?= $bill_by_id['dia_chi'] ?>" required>
             </div>
-
-        </div>
+</div>
 
         <div class="bottom">
             <label for="">Trạng thái đơn hàng</label> <br>
@@ -57,17 +56,28 @@
             </thead>
             <tbody class="text-center" id="giohang">
                 <?php
+                $tong = 0;
                 foreach ($cart_by_id as $cart) : ?>
+                    <?php
+                        $ttien = $cart['so_luong'] * $cart['gia'];
+                        $tong += $ttien;
+                    ?>
                     <tr>
                         <td><?= $cart['ten'] ?></td>
-                        <td><span><?= $cart['gia'] ?></span>vnđ</td>
+                        <td><span><?=currency_format($cart['gia'])  ?></span>vnđ</td>
                         <td><?= $cart['so_luong'] ?></td>
                         <td><?= $cart['size'] ?></td>
                         <td><?= $cart['mau'] ?></td>
-                        <th><?= $cart['thanh_tien'] ?> vnđ</th>
+                        <th><?=currency_format($cart['thanh_tien'])  ?></th>
                     </tr>
                 <?php endforeach ?>
             </tbody>
+            <tfoot id="tongdonhang">
+                    <tr class="text-center">
+                        <th colspan="5">Tổng thành tiền: </th>
+                        <td class="  text-danger font-weight-bold"><?=currency_format($tong) ?></td>
+                    </tr>
+                </tfoot>
 
         </table>
     </div>
