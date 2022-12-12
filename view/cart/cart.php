@@ -26,7 +26,7 @@
                           <?php 
                             $amount = san_pham_select_so_luong($cart[0]);
                             if($amount['so_luong'] == $cart[4]){
-                                echo "<script> alert('Sản phẩm này chỉ có tối đa: ".$amount['so_luong']." sản phẩm'); </script>";
+                                echo "<script> alert('Sản phẩm ".$cart[1]." chỉ có tối đa: ".$amount['so_luong']." sản phẩm'); </script>";
                             }
                           ?>
                               <tr>

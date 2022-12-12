@@ -283,61 +283,7 @@
           </div>
         </div>
       <?php endforeach; ?>
-      <!-- <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>New</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="view/assets/images/instagram-02.jpg" alt="" />
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Brand</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="view/assets/images/instagram-03.jpg" alt="" />
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Makeup</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="view/assets/images/instagram-04.jpg" alt="" />
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Leather</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="view/assets/images/instagram-05.jpg" alt="" />
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Bag</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="view/assets/images/instagram-06.jpg" alt="" />
-        </div>
-      </div> -->
+     
     </div>
   </div>
 </section>
@@ -349,11 +295,11 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="section-heading">
-          <h2>ĐĂNG KÝ THÔNG TIN ĐỂ NHẬN NHỮNG CHƯƠNG TRÌNH ƯU ĐÃI LỚN.</h2>
+          <h2>Chúng tôi luôn hướng tới sự hài lòng của khách hàng, đặt chất lượng cửa sản phẩm lên hàng đầu.</h2>
           <span>“Đặt sự hài lòng của khách hàng là ưu tiên số 1 trong mọi suy nghĩ hành động của mình” là sứ mệnh, là
             triết lý, chiến lược.. luôn cùng YODY tiến bước.</span>
         </div>
-        <form id="subscribe" action="" method="get">
+        <!-- <form id="subscribe" action="" method="get">
           <div class="row">
             <div class="col-lg-5">
               <fieldset>
@@ -373,7 +319,7 @@
               </fieldset>
             </div>
           </div>
-        </form>
+        </form> -->
       </div>
       <div class="col-lg-4">
         <div class="row">

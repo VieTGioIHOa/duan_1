@@ -64,7 +64,7 @@
                             <li class="scroll-to-section"><a href="index.php?act=sanpham_nu&trang=1" class="<?=isset($_GET['act']) && $_GET['act'] == 'sanpham_nu' ? 'active' : ''?>">NỮ</a></li>
                             <li class="scroll-to-section"><a href="index.php?act=sanpham_te&trang=1" class="<?=isset($_GET['act']) && $_GET['act'] == 'sanpham_te' ? 'active' : ''?>">TRẺ EM</a></li>
                             <li class="submenu">
-                                <a href="javascript:;">YODY</a>
+                                <a href="javascript:;">HEXA</a>
                                 <ul>
                                     <li><a href="index.php?act=about">Giới thiệu</a></li>
                                     <li><a href="index.php?act=tin_tuc">Tin tức</a></li>

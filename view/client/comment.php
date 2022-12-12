@@ -6,6 +6,27 @@ $id_san_pham = $_REQUEST['id_san_pham'];
 $list = binh_luan_select_alls($id_san_pham);
     include '../../models/binhluan.php';
 ?>
+ <?php
+    if (isset($_POST['dang'])) {
+        $noi_dung = $_POST['noi_dung'];
+        $id_san_pham = $_POST['id_san_pham'];
+        $id_tai_khoan = $_POST['id_tai_khoan'];
+        $ngay_bl = date_format(date_create(), 'Y-m-d');
+        $upload = true;
+        if($noi_dung == ""){
+            $upload = false;
+            var_dump($noi_dung);
+        }  
+        if ($upload){
+                binh_luan_insert($noi_dung, $ngay_bl, $id_tai_khoan, $id_san_pham);
+                header("Location:" . $_SERVER['HTTP_REFERER']);
+        }else {
+            $thongbao = "Bạn cần nhập nội dung trước khi gửi";
+        }
+        
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +67,7 @@ $list = binh_luan_select_alls($id_san_pham);
             ?>
                 <div class="comment-box text-center">
                     <h4>Để lại bình luận</h4>
+                    <?= $thongbao ?>
                     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="comment-area">
                             <input type="hidden" name="id_san_pham" value="<?= $id_san_pham ?>">
@@ -62,16 +84,7 @@ $list = binh_luan_select_alls($id_san_pham);
             <?php
             } ?>
 
-            <?php
-            if (isset($_POST['dang'])) {
-                $noi_dung = $_POST['noi_dung'];
-                $id_san_pham = $_POST['id_san_pham'];
-                $id_tai_khoan = $_POST['id_tai_khoan'];
-                $ngay_bl = date_format(date_create(), 'Y-m-d');
-                binh_luan_insert($noi_dung, $ngay_bl, $id_tai_khoan, $id_san_pham);
-                header("Location:" . $_SERVER['HTTP_REFERER']);
-            }
-            ?>
+           
         </div>
     </div>
 </body>

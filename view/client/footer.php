@@ -24,12 +24,12 @@
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>VỀ YODY</h4>
+                    <h4>VỀ HEXA</h4>
                     <ul>
-                        <li><a href="index.html">Trang Chủ</a></li>
-                        <li><a href="about.html">Giới Thiệu</a></li>
-                        <li><a href="#">Tin Tức</a></li>
-                        <li><a href="contact.html">Liên Hệ</a></li>
+                        <li><a href="index.php">Trang Chủ</a></li>
+                        <li><a href="index.php?act=about">Giới Thiệu</a></li>
+                        <li><a href="index.php?act=tin_tuc">Tin Tức</a></li>
+                        <li><a href="index.php?act=contact">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2022 YODY FASHION, All Rights Reserved. 
+                        <p>Copyright © 2022 HEXA FASHION, All Rights Reserved. 
                         
                         <br>Design: <a href="#" target="_parent" title="free css templates">NHÓM 5</a>
 

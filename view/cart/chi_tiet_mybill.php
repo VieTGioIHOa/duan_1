@@ -1,4 +1,4 @@
-<div class="right tong pt-5" style="margin-top: 50px;">
+<div class="right tong pt-5 container" style="margin-top: 50px;">
     <form action="index.php?act=update_bill" class="form" method="POST">
         <div class="form-groups">
             <div class="left">
